@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.funweb.dao.MemberDAO;
 
 @Repository
-public class MemberServiceImp {
+public class MemberServiceImp implements MemberService{
 
 	@Inject
 	private MemberDAO memberDAO;
