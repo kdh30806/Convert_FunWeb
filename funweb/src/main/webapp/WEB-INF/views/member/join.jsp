@@ -10,75 +10,8 @@
 <link href='<c:url value="/resources/css/subpage.css"/>' rel="stylesheet" type="text/css">
 <script src='<c:url value="/resources/script/jquery-3.5.1.js"/>'></script>
 <script src='<c:url value="/resources/js/join.js"/>'></script>
-<script type="text/javascript">
-function goPopup(){
-    var pop = window.open('<c:url value="/member/juso"/>',"pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
-    
-}
-
-$(document).ready(function() {	
-	$('#join').submit(function(){
-		
-		if($('.id').val()==""){
-			alert("아이디 입력하세요");
-			$('.id').focus();
-			return false;
-		}
-		
-		if($('#pass').val()==""){
-			alert("비밀번호 입력하세요");
-			$('#pass').focus();
-			return false;
-		}
-		
-		if($('#pass').val() != $('#pass2').val()){
-	 		alert("패스워드가 일치하지 않습니다.");
-	 		return false;
-	 	}
-		
-		if($('#name').val()==""){
-			alert("이름 입력하세요");
-			$('#name').focus();
-			return false;
-		}
-		
-		if($('#age').val()==""){
-			alert("나이를 입력해주세요.");
-			$('#age').focus();
-			return false;
-		}
-		
-		if(document.fr.gender.value == ""){
-			alert("성별을 선택해주세요");
-			return false;
-		}
-		
-		if($('#email').val()==""){
-			alert("이메일 입력하세요");
-			$('#email').focus();
-			return false;
-		}
-		
-		if($('#email').val()!=$('#email2').val()){
-			alert("이메일이 일치하지 않습니다.");
-			$('#email').focus();
-			return false;
-		}
-		
-	});
-	
- 	$('.dup').click(function() {
-		$.ajax('dupcheck2.jsp',{
-			data:{id:$('.id').val()},
-			success:function(rdata){
-				$('#divid').html(rdata);
-			}
-		});
-	});
- 	
-});
-</script>
-
+<script src='<c:url value="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"/>'></script>
+<span id="guide" style="color:#999;display:none"></span>
 </head>
 <body>
 <div id="wrap">
@@ -137,20 +70,19 @@ $(document).ready(function() {
 				<tr>
 					<td>우편번호</td>
 					<td>
-					    <input type="hidden" id="confmKey" name="confmKey" value=""  >
-						<input type="text" id="zipNo" name="zipNo" readonly style="width:100px">
-						<input type="button"  value="주소검색" onclick="goPopup();">
+						<input type="text" id="sample4_postcode" placeholder="우편번호" name="zipNo" readonly style="width:100px">
+						<input type="button"  value="주소검색" onclick="sample4_execDaumPostcode();">
 					</td>
 				</tr>
 				<tr>
 					<td>도로명주소</td>
-					<td><input type="text" id="roadAddrPart1" style="width:85%" name="address"></td>
+					<td><input type="text" id="sample4_roadAddress" style="width:85%" name="address" placeholder="도로명주소"></td>
 				</tr>
 				<tr>
 					<td>상세주소</td>
 					<td>
-						<input type="text" id="addrDetail" style="width:40%" name="address2">
-						<input type="text" id="roadAddrPart2"  style="width:40%" name="address3">
+						<input type="text" id="sample4_jibunAddress" style="width:40%" name="address2" placeholder="상세주소1">
+						<input type="text" id="sample4_extraAddress"  style="width:40%" name="address3" placeholder="상세주소2">
 					</td>
 				</tr>
 			</tbody>
