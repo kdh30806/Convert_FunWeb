@@ -11,4 +11,9 @@ public class BoardDAOImp implements BoardDAO{
 	@Inject
 	private SqlSession sqlSession;
 	String namespace = "com.funweb.mapper.boardMapper";
+	
+	@Override
+	public int getBoardCount() {
+		return sqlSession.selectOne(namespace+".getBoardCount");
+	}
 }

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
 <%
 String id = (String)session.getAttribute("id");
 
 if(id == null){ %>
 	<div id="login">
-	<a href="../member/login.jsp">login</a>   <a href="../member/join.jsp">join</a>
+	<a href='<c:url value="login"/>' >login</a>   <a href='<c:url value="/member/join"/>'>join</a>
 	</div>
 	<%
 } else {%> 
@@ -18,7 +19,7 @@ if(id == null){ %>
 %>
 <div class="clear"></div>
 <!-- 로고들어가는 곳 -->
-<div id="logo"><img src="../images/더본.png" width="265" height="62" alt="Fun Web"></div>
+<div id="logo"><img src='<c:url value="/resources/images/더본.png" />' width="265" height="62" alt="Fun Web"></div>
 <!-- 로고들어가는 곳 -->
 <nav id="top_menu">
 <ul>
