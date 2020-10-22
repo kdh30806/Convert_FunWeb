@@ -20,4 +20,25 @@ public class MemberServiceImp implements MemberService{
 		mb.setReg_date(new Timestamp(System.currentTimeMillis()));
 		memberDAO.insertMember(mb);
 	}
+
+	@Override
+	public MemberBean loginMember(MemberBean mb) {
+		return memberDAO.loginMember(mb);
+	}
+
+	@Override
+	public MemberBean getMember(String id) {
+		return memberDAO.getMember(id);
+	}
+
+	@Override
+	public void updateMember(MemberBean mb) {
+		memberDAO.updateMember(mb);
+	}
+
+	
+	@Override
+	public MemberBean checkPass(MemberBean mb) {
+		return memberDAO.checkPass(mb);
+	}
 }

@@ -17,8 +17,27 @@ public class MemberDAOImp implements MemberDAO{
 	
 	@Override
 	public void insertMember(MemberBean mb) {
-		System.out.println("MemberDAOImpl - insertMember");
 		sqlSession.insert(namespace+".insertMember",mb);
+	}
+
+	@Override
+	public MemberBean loginMember(MemberBean mb) {
+		return sqlSession.selectOne(namespace+".loginMember",mb);
+	}
+
+	@Override
+	public MemberBean getMember(String id) {
+		return sqlSession.selectOne(namespace+".getMember",id);
+	}
+
+	@Override
+	public void updateMember(MemberBean mb) {
+		sqlSession.selectOne(namespace+".updateMember",mb);
+	}
+
+	@Override
+	public MemberBean checkPass(MemberBean mb) {
+		return sqlSession.selectOne(namespace+".checkPass",mb);
 	}
 	
 }

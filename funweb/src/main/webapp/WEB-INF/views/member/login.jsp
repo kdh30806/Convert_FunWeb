@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href='<c:url value="/resources/css/defalut.css"/>' rel="stylesheet" type="text/css">
+<link href='<c:url value="/resources/css/default.css"/>' rel="stylesheet" type="text/css">
 <link href='<c:url value="/resources/css/subpage.css"/>' rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -30,7 +30,7 @@
 <!-- 본문내용 -->
 <article>
 <h1>Login</h1>
-<form action="loginPro.jsp" id="join" method="post">
+<form action="login" id="join" method="post">
 <fieldset>
 <legend>Login Info</legend>
 <label>User ID</label>

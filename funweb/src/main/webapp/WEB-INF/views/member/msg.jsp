@@ -7,17 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>member/logout.jsp</h1>
-<%
-//세션 초기화
-session.invalidate();
-// "로그아웃" main.jsp 이동
-%>
 <script type="text/javascript">
-	alert("로그아웃");
-	location.href="../main/main.jsp";
+	var m = '${msg}';
+	alert(m);
+	history.back();
 </script>
 </body>
 </html>
-
-
