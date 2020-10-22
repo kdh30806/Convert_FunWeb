@@ -6,14 +6,21 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.funweb.domain.BoardBean;
+import com.funweb.domain.MailBean;
 import com.funweb.domain.PageBean;
 import com.funweb.service.BoardService;
 import com.funweb.service.MainService;
@@ -26,6 +33,10 @@ public class MainController {
 	
 	@Inject 
 	private BoardService boardService;
+	
+	@Autowired 
+	private JavaMailSenderImpl mailSender;
+
 	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String home(HttpServletRequest request, Model model) {
@@ -43,5 +54,30 @@ public class MainController {
 		
 		return "main";
 	}
+	
+	@RequestMapping(value = "/company", method = RequestMethod.GET)
+	public String company() {	
+		return "company/welcome";
+	}
+	
+	@RequestMapping(value = "/mail", method = RequestMethod.GET)
+	public String mail(HttpSession session) {	
+		return "contact/mail";
+	}
 
+	@RequestMapping(value = "/mail", method = RequestMethod.POST)
+	public String mailPorst(final MailBean mb) {
+		
+		final MimeMessagePreparator preparator = new MimeMessagePreparator() { 
+			@Override public void prepare(MimeMessage mimeMessage) throws Exception { 
+				final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8"); 
+				helper.setFrom(mb.getSender()); 
+				helper.setTo(mb.getReceiver()); 
+				helper.setSubject(mb.getSubject()); 
+				helper.setText(mb.getContent(), true); 
+				} 
+			}; 
+			mailSender.send(preparator);		
+		return "main";
+	}
 }

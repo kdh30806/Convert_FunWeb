@@ -21,10 +21,10 @@
 <!-- 로고들어가는 곳 -->
 <nav id="top_menu">
 <ul>
-	<li style="margin: 0px 20px;"><a href="../main/main.jsp">HOME</a></li>
-	<li style="margin: 0px 20px;"><a href="../company/welcome.jsp">COMPANY</a></li>
-	<li style="margin: 0px 20px;"><a href="../notice/notice.jsp">CUSTOMER CENTER</a></li>
-	<li style="margin: 0px 20px;"><a href="../contact/mailForm.jsp">CONTACT US</a></li>
+	<li style="margin: 0px 20px;"><a href='<c:url value="/main"/>'>HOME</a></li>
+	<li style="margin: 0px 20px;"><a href='<c:url value="company"/>'>COMPANY</a></li>
+	<li style="margin: 0px 20px;"><a href='<c:url value="main"/>'>BOARD</a></li>
+	<li style="margin: 0px 20px;"><a href='<c:url value="mail"/>'>CONTACT US</a></li>
 </ul>
 </nav>
 </header>
