@@ -15,15 +15,34 @@ public class BoardServiceImp implements BoardService{
 
 	@Inject
 	private BoardDAO boardDAO;
-
+	
 	@Override
-	public int getBoardCount() {
-		return boardDAO.getBoardCount();
+	public int getNoticeCount( ) {
+		return boardDAO.getNoticeCount();
 	}
 
 	@Override
-	public List<BoardBean> getBoardList(PageBean pb) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BoardBean> getNoticeList(PageBean pb) {
+		return boardDAO.getNoticeList(pb);
 	}
+
+	@Override
+	public void writeNotice(BoardBean bb) {
+		
+		if(boardDAO.getNoticeMaxNum() == null) {
+			bb.setNum(1);			
+		} else {
+			bb.setNum(boardDAO.getNoticeMaxNum() + 1);
+		}
+		System.out.println(bb.getNum());
+		
+		boardDAO.writeNotice(bb);
+		
+	}
+
+	@Override
+	public BoardBean getNotice(int num) {
+		return boardDAO.getNotice(num);
+	}
+
 }

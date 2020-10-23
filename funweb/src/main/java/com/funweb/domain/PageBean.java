@@ -25,7 +25,7 @@ public class PageBean {
 		//페이징 갯수 count%pageSize해서 나머지가 0이면 +0 나머지가 있으면 +1
 		pageCount= count/pageSize+(count%pageSize==0?0:1);
 		// 보여질 페이징 갯수 넘어가면 다음/이전 생김
-		pageBlock=3;
+		pageBlock=5;
 		// startPage 시작페이지 페이지가 3개 보이는 것중 첫번째 페이지
 		startPage= (currentPage-1)/pageBlock*pageBlock+1;
 		// endPage 페이지 3개 보이는 것중 마지막 페이지

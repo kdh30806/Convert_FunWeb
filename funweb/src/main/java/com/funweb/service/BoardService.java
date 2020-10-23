@@ -7,7 +7,9 @@ import com.funweb.domain.PageBean;
 
 public interface BoardService {
 
-	int getBoardCount();
-	List<BoardBean> getBoardList(PageBean pb);
+	int getNoticeCount();
+	void writeNotice(BoardBean bb);
+	List<BoardBean> getNoticeList(PageBean pb);
+	BoardBean getNotice(int num);
 
 }

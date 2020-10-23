@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <nav id="sub_menu">
 <ul>
-<li><a href="../notice/notice.jsp">공지사항</a></li>
-<li><a href="../recipeBoard/recipeBoardList.jsp">레시피 게시판</a></li>
-<li><a href="../imageBoard/imageBoardList.jsp">사진 게시판</a></li>
-<li><a href="../downloadboard/driverDownloadList.jsp">다운로드 페이지</a></li>
+<li><a href='<c:url value="/board/notice/noticeMain" />'>notice</a></li>
+<li><a href='<c:url value="/board/notice/recipeMain" />'>recipe</a></li>
+<li><a href='<c:url value="/board/notice/pictureMain" />'>picture</a></li>
+<li><a href='<c:url value="/board/notice/downloadMain" />'>download</a></li>
 </ul>
 </nav>

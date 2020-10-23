@@ -1,6 +1,7 @@
 package com.funweb.domain;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class BoardBean {
 	
@@ -12,7 +13,6 @@ public class BoardBean {
 	private int readcount;
 	private Timestamp date;
 	private String file;
-	private String category;
 	private int recommend;
 	
 	public int getNum() {
@@ -51,8 +51,9 @@ public class BoardBean {
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
 	}
-	public Timestamp getDate() {
-		return date;
+	public String getDate() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");	
+		return sdf.format(date);
 	}
 	public void setDate(Timestamp date) {
 		this.date = date;
@@ -63,12 +64,7 @@ public class BoardBean {
 	public void setFile(String file) {
 		this.file = file;
 	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
+
 	public int getRecommend() {
 		return recommend;
 	}
