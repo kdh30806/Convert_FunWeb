@@ -2,28 +2,35 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.funweb.mappers.boardMapper">
+<mapper namespace="com.funweb.mappers.recipeMapper">
 
 	<select id="getNoticeMaxNum" resultType="java.lang.Integer">
-		select max(num) from notice
+		select max(num) from recipe
 	</select>
 
-
 	<select id="getNoticeCount" resultType="java.lang.Integer">
-		select count(*) from notice
+		select count(*) from recipe
 	</select>
 
 	<insert id="writeNotice">
-		insert into notice(num,name,pass,subject,content)
+		insert into recipe(num,name,pass,subject,content)
 		values(#{num}, #{name}, #{pass}, #{subject}, #{content})
 	</insert>
 	
 	<select id="getNoticeList" resultType="com.funweb.domain.BoardBean">
-		select * from notice
+		select * from recipe order by num desc limit #{startRow},#{pageSize}
 	</select>
 	
 	<select id="getNotice" resultType="com.funweb.domain.BoardBean">
-		select * from notice
+		select * from recipe where num= #{num}
 	</select>
+	
+	<update id="updateNotice">
+		update recipe set subject=#{subject}, content=#{content} where num=#{num}
+	</update>
+	
+	<delete id="deleteNotice">
+		delete from recipe where num=#{num}
+	</delete>
 
 </mapper>

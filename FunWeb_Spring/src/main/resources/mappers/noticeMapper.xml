@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.funweb.mappers.noticeMapper">
+
+	<select id="getNoticeMaxNum" resultType="java.lang.Integer">
+		select max(num) from notice
+	</select>
+
+	<select id="getNoticeCount" resultType="java.lang.Integer">
+		select count(*) from notice
+	</select>
+
+	<insert id="writeNotice">
+		insert into notice(num,name,pass,subject,content)
+		values(#{num}, #{name}, #{pass}, #{subject}, #{content})
+	</insert>
+	
+	<select id="getNoticeList" resultType="com.funweb.domain.BoardBean">
+		select * from notice order by num desc limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getNotice" resultType="com.funweb.domain.BoardBean">
+		select * from notice where num= #{num}
+	</select>
+	
+	<update id="updateNotice">
+		update notice set subject=#{subject}, content=#{content} where num=#{num}
+	</update>
+	
+	<delete id="deleteNotice">
+		delete from notice where num=#{num}
+	</delete>
+
+</mapper>

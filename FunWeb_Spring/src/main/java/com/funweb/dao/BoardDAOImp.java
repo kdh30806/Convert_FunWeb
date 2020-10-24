@@ -15,7 +15,7 @@ public class BoardDAOImp implements BoardDAO{
 
 	@Inject
 	private SqlSession sqlSession;
-	String namespace = "com.funweb.mappers.boardMapper";
+	String namespace = "com.funweb.mappers.noticeMapper";
 	
 	@Override
 	public Integer getNoticeMaxNum( ) {
@@ -39,6 +39,16 @@ public class BoardDAOImp implements BoardDAO{
 
 	@Override
 	public BoardBean getNotice(int num) {
-		return sqlSession.selectOne(namespace+".getBoard",num);
+		return sqlSession.selectOne(namespace+".getNotice",num);
+	}
+
+	@Override
+	public void updateNotice(BoardBean bb) {
+		sqlSession.update(namespace+".updateNotice",bb);
+	}
+
+	@Override
+	public void deleteNotice(int num) {
+		sqlSession.delete(namespace+".deleteNotice",num);
 	}
 }

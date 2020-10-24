@@ -11,5 +11,7 @@ public interface BoardService {
 	void writeNotice(BoardBean bb);
 	List<BoardBean> getNoticeList(PageBean pb);
 	BoardBean getNotice(int num);
+	void updateNotice(BoardBean bb);
+	void deleteNotice(int num);
 
 }

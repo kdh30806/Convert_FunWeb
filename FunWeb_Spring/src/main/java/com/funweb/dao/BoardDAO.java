@@ -17,4 +17,8 @@ public interface BoardDAO {
 
 	BoardBean getNotice(int num);
 
+	void updateNotice(BoardBean bb);
+
+	void deleteNotice(int num);
+
 }

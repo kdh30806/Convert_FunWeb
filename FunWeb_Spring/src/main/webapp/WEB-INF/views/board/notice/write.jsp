@@ -28,7 +28,7 @@
 <article>
 <h1>Notice</h1>
 
-<form action="noticeWrite" method="post">
+<form action="write" method="post">
 <table border="1" id="notice">
 <tr><th></th><th></th></tr>
 <tr><td>글쓴이</td><td><input type= "text"  name="name" value="${sessionScope.id}" readonly></td></tr>

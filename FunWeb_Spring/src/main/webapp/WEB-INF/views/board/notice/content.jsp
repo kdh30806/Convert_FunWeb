@@ -31,18 +31,18 @@
 <h1>Notice</h1>
 <table border="1" id="notice">
 <tr><th></th><th></th><th></th><th></th></tr>
-	<tr><td>num</td><td><%=bb.getNum()%></td><td>readcount</td><td><%=bb.getReadcount()%></td></tr>
-	<tr><td>name</td><td><%=bb.getName()%></td><td>date</td><td><%=bb.getDate()%></td></tr>
-	<tr><td>subject</td><td colspan ="3"><%=bb.getSubject() %></td></tr>
-	<tr><td>content</td><td colspan="3"><%=bb.getContent()%></td></tr>
+	<tr><td>num</td><td>${bb.num }</td><td>readcount</td><td>${bb.readcount }</td></tr>
+	<tr><td>name</td><td>${bb.name }</td><td>date</td><td>${bb.date }</td></tr>
+	<tr><td>subject</td><td colspan ="3">${bb.subject }</td></tr>
+	<tr><td>content</td><td colspan="3">${bb.content }</td></tr>
 </table>
 <div id="table_search">
-	<input type="button" value="글목록" onclick="location.href='notice.jsp'" class="btn">
-<c:if test="${sessionScop.id eq 'admin'}">
-	<input type="button" value="글수정" onclick="location.href='updateForm.jsp?num=<%=bb.getNum()%>'" class="btn">
-	<input type="button" value="글삭제" onclick="location.href='deletePro.jsp?num=<%=bb.getNum()%>'" class="btn">
+	<input type="button" value="글목록" onclick='location.href="<c:url value="/board/notice/main"/>"' class="btn">
+<c:if test="${sessionScope.id eq 'admin'}">
+	<input type="button" value="글수정" onclick='location.href="<c:url value="/board/notice/update?num=${bb.num }"/>"' class="btn">
+	<input type="button" value="글삭제" onclick='location.href="<c:url value="/board/notice/delete?num=${bb.num }"/>"'  class="btn">
 </c:if>
-</div> nn;
+</div>
 </article>
 <!-- 게시판 -->
 <!-- 본문들어가는 곳 -->

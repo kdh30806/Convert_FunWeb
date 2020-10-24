@@ -6,13 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-</script>
 <link href='<c:url value="/resources/css/default.css" />' rel="stylesheet" type="text/css">
 <link href='<c:url value="/resources/css/subpage.css" />' rel="stylesheet" type="text/css">
 </head>
 <body>
-
 <div id="wrap">
 <!-- 헤더들어가는 곳 -->
 <jsp:include page="../../inc/top.jsp"  />
@@ -30,38 +27,20 @@
 <!-- 게시판 -->
 <article>
 <h1>Notice</h1>
-<table id="notice">
-<tr><th class="tno">No.</th>
-    <th class="ttitle">Title</th>
-    <th class="twrite">Writer</th>
-    <th class="tdate">Date</th>
-    <th class="tread">Read</th></tr>
-<c:forEach var="nl" items="${noticeList}">
-	<tr>
-		<td class="center">${nl.num}</td>
-		<td class="left"><a href='<c:url value="/board/notice/content?num=${nl.num}"/>'>${nl.subject }</a></td>
-		<td class="left">${nl.name }</td>
-		<td class="left">${nl.date }</td>
-		<td class="center">${nl.readcount}</td></tr>
-</c:forEach>
+
+<form action="update" method="post">
+<input type="hidden" name="num" value="${bb.num }">
+<table border="1" id="notice">
+<tr><th></th><th></th></tr>
+<tr><td>글쓴이</td><td><input type= "text"  name="name" value="${bb.name }" readonly="readonly"></td></tr>
+<tr><td>제목</td><td><input type= "text"  name="subject" value="${bb.subject }"></td></tr>
+<tr><td>내용</td><td><textarea rows="10" cols="20" name="content">${bb.content }</textarea></td></tr>
 </table>
 <div id="table_search">
-<form action="noticeSearch.jsp" method="post">
-<input type="text" name="search" class="input_box">
-<input type="submit" value="검색" class="btn"> 
-<c:if test="${sessionScope.id eq 'admin'}">
-	<a href='<c:url value="/board/notice/noticeWrite" />'><input type="button" value="글쓰기" class="btn"></a>
-</c:if>
+<input type="submit" value="글수정" class="btn"><input type="button" value="취소" class="btn" onclick='<c:url value="/board/notice/noticeMain"/>'>
+</div>
 </form>
-</div>
-<div class="clear"></div>
-<div id="page_control">
-<a href="#">Prev</a>
-	<a href="#">1</a>
-	<a href="#">2</a>
-<a href="#">Next</a>
 
-</div>
 </article>
 <!-- 게시판 -->
 <!-- 본문들어가는 곳 -->

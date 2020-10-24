@@ -23,6 +23,13 @@ public class BoardServiceImp implements BoardService{
 
 	@Override
 	public List<BoardBean> getNoticeList(PageBean pb) {
+		// 시작하는 행번호 구하기 
+		// int currentPage=Integer.parseInt(pageNum);
+		pb.setCurrentPage(Integer.parseInt(pb.getPageNum()));
+		// int startRow= ((currentPage-1)*pageSize+1)-1;
+		pb.setStartRow((pb.getCurrentPage()-1)*pb.getPageSize());
+		// int endRow=currentPage*pageSize;
+		pb.setEndRow(pb.getCurrentPage()*pb.getPageSize());
 		return boardDAO.getNoticeList(pb);
 	}
 
@@ -43,6 +50,16 @@ public class BoardServiceImp implements BoardService{
 	@Override
 	public BoardBean getNotice(int num) {
 		return boardDAO.getNotice(num);
+	}
+
+	@Override
+	public void updateNotice(BoardBean bb) {
+		boardDAO.updateNotice(bb);
+	}
+
+	@Override
+	public void deleteNotice(int num) {
+		boardDAO.deleteNotice(num);
 	}
 
 }
