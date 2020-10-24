@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.funweb.mappers.memberMapper">
+
+	<insert id="insertMember">
+		insert into
+		member(id,pass,name,age,email,zipNo,address,address2,address3,phone,mobile,reg_date)
+		values(#{id},#{pass},#{name},#{age},#{email},#{zipNo},#{address},#{address2},#{address3},#{phone},#{mobile},#{reg_date})
+	</insert>
+
+	<select id="loginMember"
+		resultType="com.funweb.domain.MemberBean">
+		select * from member where id=#{id} and pass=#{pass}
+	</select>
+
+	<select id="getMember" resultType="com.funweb.domain.MemberBean">
+		select * from member where id=#{id}
+	</select>
+
+	<insert id="updateMember">
+		update member
+		set id=#{id}, pass=#{pass}, name=#{name}, age=#{age}, gender=#{gender},
+		email=#{email}, zipNo=#{zipNo}, address=#{address},
+		address2=#{address2}, address3=#{address3}, phone=#{phone},
+		mobile=#{mobile}
+		where id=#{id} and pass=#{pass}
+	</insert>
+
+	<select id="checkPass" resultType="com.funweb.domain.MemberBean">
+		select * from member where id=#{id} and pass=#{pass}
+	</select>
+</mapper>
