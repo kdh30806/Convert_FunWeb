@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
-import com.funweb.service.BoardService;
+import com.funweb.service.NoticeService;
 
 @Controller
-public class BoardController {
+public class NoticeController {
 	
 	@Inject
-	private BoardService boardService;
+	private NoticeService noticeService;
 	
 	@RequestMapping(value = "/board/notice/main", method = RequestMethod.GET)
 	public String main(HttpSession session, HttpServletRequest request, Model model) {	
@@ -33,9 +33,9 @@ public class BoardController {
 		}
 		pb.setPageNum(pageNum);
 		
-		List<BoardBean> noticeList = boardService.getNoticeList(pb);
+		List<BoardBean> noticeList = noticeService.getBoardList(pb);
 		
-		pb.setCount(boardService.getNoticeCount());
+		pb.setCount(noticeService.getBoardCount());
 		
 		session.setAttribute("id", id);
 		model.addAttribute("noticeList", noticeList);
@@ -56,7 +56,7 @@ public class BoardController {
 	@RequestMapping(value = "/board/notice/write", method = RequestMethod.POST)
 	public String writePost(BoardBean bb) {	
 		
-		boardService.writeNotice(bb);
+		noticeService.writeBoard(bb);
 		
 		return "redirect:/main";
 	}
@@ -67,7 +67,7 @@ public class BoardController {
 		String id = (String)session.getAttribute("id");
 		int num = Integer.parseInt(request.getParameter("num"));
 		
-		BoardBean bb = boardService.getNotice(num);
+		BoardBean bb = noticeService.getBoard(num);
 		
 		session.setAttribute("id", id);	
 		model.addAttribute("bb", bb);
@@ -80,7 +80,7 @@ public class BoardController {
 		String id = (String)session.getAttribute("id");
 		int num = Integer.parseInt(request.getParameter("num"));
 		
-		BoardBean bb = boardService.getNotice(num);
+		BoardBean bb = noticeService.getBoard(num);
 		
 		session.setAttribute("id", id);	
 		model.addAttribute("bb", bb);
@@ -90,7 +90,7 @@ public class BoardController {
 	@RequestMapping(value = "/board/notice/update", method = RequestMethod.POST)
 	public String updatePost(BoardBean bb) {	
 		
-		boardService.updateNotice(bb);
+		noticeService.updateBoard(bb);
 	
 		return "redirect:/board/notice/main";
 	}
@@ -100,7 +100,7 @@ public class BoardController {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
 		
-		boardService.deleteNotice(num);
+		noticeService.deleteBoard(num);
 
 		return "redirect:/board/notice/main";
 	}

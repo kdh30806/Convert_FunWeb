@@ -62,7 +62,7 @@ function init(){
 }
 </script>
 <body onload="init();">
-	<form id="join" name="fr" method=GET">
+	<form id="join" name="fr" method="GET">
 		<input type="hidden" id="confmKey" name="confmKey" value=""/>
 		<input type="hidden" id="returnUrl" name="returnUrl" value=""/>
 		<input type="hidden" id="resultType" name="resultType" value=""/>
