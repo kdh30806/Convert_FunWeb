@@ -67,4 +67,9 @@ public class BoardServiceImp implements BoardService{
 		boardDAO.updateReadCount(bb);
 	}
 
+	@Override
+	public void recommandBoard(BoardBean bb) {
+		boardDAO.recommandBoard(bb);
+	}
+
 }

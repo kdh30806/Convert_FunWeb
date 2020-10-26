@@ -56,4 +56,9 @@ public class BoardDAOImp implements BoardDAO{
 	public void updateReadCount(BoardBean bb) {
 		sqlSession.update(namespace+".updateReadCount",bb);
 	}
+
+	@Override
+	public void recommandBoard(BoardBean bb) {
+		sqlSession.update(namespace+".recommandBoard",bb);
+	}
 }

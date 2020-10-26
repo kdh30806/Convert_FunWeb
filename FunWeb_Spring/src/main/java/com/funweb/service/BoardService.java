@@ -14,5 +14,6 @@ public interface BoardService {
 	void updateBoard(BoardBean bb);
 	void deleteBoard(BoardBean bb);
 	void updateReadCount(BoardBean bb);
+	void recommandBoard(BoardBean bb);
 
 }

@@ -31,13 +31,13 @@
 <form method="post" enctype="multipart/form-data">
 <table border="1" id="notice">
 <tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>
-	<tr><td>글번호</td><td>${bb.num }</td><td>조회수</td><td>${bb.readcount }</td><td>추천수</td><td>${bb.recommend }</td></tr>
+	<tr><td>글번호</td><td>${bb.num }</td><td>조회수</td><td>${bb.readcount }</td><td>추천수</td><td>${bb.recommand }</td></tr>
 	<tr><td>글쓴이</td><td>${bb.name }</td><td>작성일</td><td colspan="3">${bb.date }</td></tr>
 	<tr><td>글제목</td><td colspan ="5">${bb.subject }</td></tr>
 	<tr><td>글내용</td><td colspan="5">${bb.content }</td></tr>
 	<tr><td>파일</td><td colspan="5"> <img src='<c:url value="/resources/upload/${bb.file }"/>' width="300" height="300"></td></tr>
 	</table>
-	<img alt="" src='<c:url value="/resources/images/따봉2.jpg"/>' class="rbtn" border="3" onclick='<c:url value="#" />'>
+	<img alt="" src='<c:url value="/resources/images/따봉2.jpg"/>' class="rbtn" border="3" onclick='location.href="<c:url value="/board/picture/recommend?num=${bb.num }" />"'>
 <div id="table_search">
 <input type="button" value="글목록" onclick='location.href="<c:url value="/board/piture/main"/>"' class="btn">
 <c:if test="${sessionScope.id eq bb.name }">

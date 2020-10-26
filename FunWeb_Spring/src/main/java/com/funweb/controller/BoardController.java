@@ -336,7 +336,7 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/board/picture/delete", method = RequestMethod.GET)
-	public String delete(HttpServletRequest request) {
+	public String pictureDelete(HttpServletRequest request) {
 
 		BoardBean bb = new BoardBean();
 		bb.setNum(Integer.parseInt(request.getParameter("num")));
@@ -345,6 +345,19 @@ public class BoardController {
 		boardService.deleteBoard(bb);
 
 		return "redirect:/board/picture/main";
+	}
+	
+	@RequestMapping(value = "/board/picture/recommend", method = RequestMethod.GET)
+	public String pictureRecommend(HttpServletRequest request) {
+
+		int num = Integer.parseInt(request.getParameter("num"));
+		BoardBean bb = new BoardBean();
+		bb.setNum(num);
+		bb.setCategory("picture");
+
+		boardService.recommandBoard(bb);
+
+		return "redirect:/board/picture/content?num="+num;
 	}
 
 }

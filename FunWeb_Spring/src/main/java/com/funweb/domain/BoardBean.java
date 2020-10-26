@@ -14,7 +14,7 @@ public class BoardBean {
 	private int readcount;
 	private Timestamp date;
 	private String file;
-	private int recommend;
+	private int recommand;
 	private int commentCount;
 	
 	
@@ -81,11 +81,11 @@ public class BoardBean {
 		this.file = file;
 	}
 
-	public int getRecommend() {
-		return recommend;
+	public int getRecommand() {
+		return recommand;
 	}
-	public void setRecommend(int recommend) {
-		this.recommend = recommend;
+	public void setRecommand(int recommand) {
+		this.recommand = recommand;
 	}
 
 	

@@ -36,5 +36,9 @@
 	<update id="updateReadCount">
 		update ${category} set readcount = readcount + 1 where num=#{num}
 	</update>
+	
+	<update id="recommandBoard">
+		update ${category} set recommand = recommand + 1 where num=#{num}
+	</update>
 
 </mapper>

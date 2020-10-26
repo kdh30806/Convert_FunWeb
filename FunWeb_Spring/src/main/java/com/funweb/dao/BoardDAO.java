@@ -23,4 +23,6 @@ public interface BoardDAO {
 
 	void updateReadCount(BoardBean bb);
 
+	void recommandBoard(BoardBean bb);
+
 }
