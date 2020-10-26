@@ -11,20 +11,20 @@ import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
 
 @Repository
-public class PictureDAOImp implements PictureDAO{
+public class BoardDAOImp implements BoardDAO{
 
 	@Inject
 	private SqlSession sqlSession;
-	String namespace = "com.funweb.mappers.pictureMapper";
+	String namespace = "com.funweb.mappers.boardMapper";
 	
 	@Override
-	public Integer getMaxNum( ) {
-		return sqlSession.selectOne(namespace+".getMaxNum");
+	public Integer getMaxNum(String category) {
+		return sqlSession.selectOne(namespace+".getMaxNum",category);
 	}
 	
 	@Override
-	public int getBoardCount( ) {
-		return sqlSession.selectOne(namespace+".getBoardCount");
+	public int getBoardCount(String category) {
+		return sqlSession.selectOne(namespace+".getBoardCount",category);
 	}
 	
 	@Override
@@ -38,8 +38,8 @@ public class PictureDAOImp implements PictureDAO{
 	}
 
 	@Override
-	public BoardBean getBoard(int num) {
-		return sqlSession.selectOne(namespace+".getBoard",num);
+	public BoardBean getBoard(BoardBean bb) {
+		return sqlSession.selectOne(namespace+".getBoard",bb);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class PictureDAOImp implements PictureDAO{
 	}
 
 	@Override
-	public void deleteBoard(int num) {
-		sqlSession.delete(namespace+".deleteBoard",num);
+	public void deleteBoard(BoardBean bb) {
+		sqlSession.delete(namespace+".deleteBoard",bb);
 	}
 }

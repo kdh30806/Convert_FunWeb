@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class BoardBean {
 	
+	private String category;
 	private int num;
 	private String name;
 	private String pass;
@@ -18,6 +19,12 @@ public class BoardBean {
 	
 	
 	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public int getCommentCount() {
 		return commentCount;
 	}

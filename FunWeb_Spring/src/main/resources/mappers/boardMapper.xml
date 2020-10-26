@@ -2,35 +2,35 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.funweb.mappers.noticeMapper">
+<mapper namespace="com.funweb.mappers.boardMapper">
 
 	<select id="getMaxNum" resultType="java.lang.Integer">
-		select max(num) from notice
+		select max(num) from ${value}
 	</select>
 
 	<select id="getBoardCount" resultType="java.lang.Integer">
-		select count(*) from notice
+		select count(*) from ${value}
 	</select>
 
 	<insert id="writeBoard">
-		insert into notice(num,name,pass,subject,content)
-		values(#{num}, #{name}, #{pass}, #{subject}, #{content})
+		insert into ${category}(num,name,pass,subject,content,file)
+		values(#{num}, #{name}, #{pass}, #{subject}, #{content}, #{file})
 	</insert>
 	
 	<select id="getBoardList" resultType="com.funweb.domain.BoardBean">
-		select * from notice order by num desc limit #{startRow},#{pageSize}
+		select * from ${category} order by num desc limit #{startRow},#{pageSize}
 	</select>
 	
 	<select id="getBoard" resultType="com.funweb.domain.BoardBean">
-		select * from notice where num= #{num}
+		select * from ${category} where num= #{num}
 	</select>
 	
 	<update id="updateBoard">
-		update notice set subject=#{subject}, content=#{content} where num=#{num}
+		update ${category} set subject=#{subject}, content=#{content} where num=#{num}
 	</update>
 	
 	<delete id="deleteBoard">
-		delete from notice where num=#{num}
+		delete from ${category} where num=#{num}
 	</delete>
 
 </mapper>

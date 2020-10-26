@@ -27,7 +27,7 @@
 
 <!-- 게시판 -->
 <article>
-<h1>Image</h1>
+<h1>Picture</h1>
 <c:forEach var="pl" items="${pictureList}">
 <table id="imageBoard" style="float:left;">
 	  <tr><td class="center">${pl.num }</td>

@@ -5,20 +5,20 @@ import java.util.List;
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
 
-public interface NoticeDAO {
+public interface BoardDAO {
 
-	int getBoardCount();
+	int getBoardCount(String category);
 	
-	Integer getMaxNum();
+	Integer getMaxNum(String category);
 
 	void writeBoard(BoardBean bb);
 
 	List<BoardBean> getBoardList(PageBean pb);
 
-	BoardBean getBoard(int num);
+	BoardBean getBoard(BoardBean bb);
 
 	void updateBoard(BoardBean bb);
 
-	void deleteBoard(int num);
+	void deleteBoard(BoardBean bb);
 
 }

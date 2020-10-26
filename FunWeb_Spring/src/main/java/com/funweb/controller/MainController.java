@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.MailBean;
 import com.funweb.domain.PageBean;
-import com.funweb.service.NoticeService;
+import com.funweb.service.BoardService;
 import com.funweb.service.MainService;
 
 @Controller

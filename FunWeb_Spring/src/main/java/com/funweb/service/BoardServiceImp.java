@@ -6,20 +6,19 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
-import com.funweb.dao.NoticeDAO;
-import com.funweb.dao.PictureDAO;
+import com.funweb.dao.BoardDAO;
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
 
 @Repository
-public class PictureServiceImp implements PictureService{
+public class BoardServiceImp implements BoardService{
 
 	@Inject
-	private PictureDAO pictureDAO;
+	private BoardDAO boardDAO;
 	
 	@Override
-	public int getBoardCount( ) {
-		return pictureDAO.getBoardCount();
+	public int getBoardCount(String category) {
+		return boardDAO.getBoardCount(category);
 	}
 
 	@Override
@@ -31,36 +30,36 @@ public class PictureServiceImp implements PictureService{
 		pb.setStartRow((pb.getCurrentPage()-1)*pb.getPageSize());
 		// int endRow=currentPage*pageSize;
 		pb.setEndRow(pb.getCurrentPage()*pb.getPageSize());
-		return pictureDAO.getBoardList(pb);
+		return boardDAO.getBoardList(pb);
 	}
 
 	@Override
 	public void writeBoard(BoardBean bb) {
 		
-		if(pictureDAO.getMaxNum() == null) {
+		if(boardDAO.getMaxNum(bb.getCategory()) == null) {
 			bb.setNum(1);			
 		} else {
-			bb.setNum(pictureDAO.getMaxNum() + 1);
+			bb.setNum(boardDAO.getMaxNum(bb.getCategory()) + 1);
 		}
 		System.out.println(bb.getNum());
 		
-		pictureDAO.writeBoard(bb);
+		boardDAO.writeBoard(bb);
 		
 	}
 
 	@Override
-	public BoardBean getBoard(int num) {
-		return pictureDAO.getBoard(num);
+	public BoardBean getBoard(BoardBean bb) {
+		return boardDAO.getBoard(bb);
 	}
 
 	@Override
 	public void updateBoard(BoardBean bb) {
-		pictureDAO.updateBoard(bb);
+		boardDAO.updateBoard(bb);
 	}
 
 	@Override
-	public void deleteBoard(int num) {
-		pictureDAO.deleteBoard(num);
+	public void deleteBoard(BoardBean bb) {
+		boardDAO.deleteBoard(bb);
 	}
 
 }
