@@ -26,7 +26,7 @@
 	</select>
 	
 	<update id="updateBoard">
-		update ${category} set subject=#{subject}, content=#{content} where num=#{num}
+		update ${category} set subject=#{subject}, content=#{content}, file=#{file} where num=#{num}
 	</update>
 	
 	<delete id="deleteBoard">

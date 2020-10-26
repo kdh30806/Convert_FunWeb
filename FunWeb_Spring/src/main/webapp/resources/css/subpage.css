@@ -224,11 +224,9 @@ color: #fff;
 repeat-x center center*/
 
 
-.rbtn{background-repeat: repeat-x;
-background-position: center center;
+.rbtn{
 margin: 10px 0px 10px 320px;
 width: 80px; height: 80px;
-background-color: #000000;
 }
 
 
