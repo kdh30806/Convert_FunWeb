@@ -26,8 +26,7 @@
 
 <!-- 게시판 -->
 <article>
-<h1>Notice</h1>
-
+<h1>Recipe</h1>
 <form action="update" method="post">
 <input type="hidden" name="num" value="${bb.num }">
 <table border="1" id="notice">

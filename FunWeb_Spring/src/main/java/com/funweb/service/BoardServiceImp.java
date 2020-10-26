@@ -62,4 +62,9 @@ public class BoardServiceImp implements BoardService{
 		boardDAO.deleteBoard(bb);
 	}
 
+	@Override
+	public void updateReadCount(BoardBean bb) {
+		boardDAO.updateReadCount(bb);
+	}
+
 }

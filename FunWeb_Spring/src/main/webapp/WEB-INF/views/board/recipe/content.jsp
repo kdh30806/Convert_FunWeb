@@ -28,7 +28,7 @@
 
 <!-- 게시판 -->
 <article>
-<h1>Notice</h1>
+<h1>Recipe</h1>
 <table border="1" id="notice">
 <tr><th></th><th></th><th></th><th></th></tr>
 	<tr><td>num</td><td>${bb.num }</td><td>readcount</td><td>${bb.readcount }</td></tr>

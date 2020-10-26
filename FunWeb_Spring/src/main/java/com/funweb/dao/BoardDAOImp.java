@@ -51,4 +51,9 @@ public class BoardDAOImp implements BoardDAO{
 	public void deleteBoard(BoardBean bb) {
 		sqlSession.delete(namespace+".deleteBoard",bb);
 	}
+
+	@Override
+	public void updateReadCount(BoardBean bb) {
+		sqlSession.update(namespace+".updateReadCount",bb);
+	}
 }

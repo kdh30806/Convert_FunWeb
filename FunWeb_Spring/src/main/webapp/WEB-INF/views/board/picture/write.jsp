@@ -26,8 +26,7 @@
 
 <!-- 게시판 -->
 <article>
-<h1>Notice</h1>
-
+<h1>Picture</h1>
 <form action='<c:url value="/board/picture/write"/>' method="post" enctype="multipart/form-data">
 <table border="1" id="notice">
 <tr><th></th><th></th></tr>

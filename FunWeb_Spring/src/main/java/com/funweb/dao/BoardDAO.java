@@ -21,4 +21,6 @@ public interface BoardDAO {
 
 	void deleteBoard(BoardBean bb);
 
+	void updateReadCount(BoardBean bb);
+
 }

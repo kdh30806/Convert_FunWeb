@@ -81,6 +81,8 @@ public class BoardController {
 		BoardBean bb = new BoardBean();
 		bb.setNum(Integer.parseInt(request.getParameter("num")));
 		bb.setCategory("notice");
+		
+		boardService.updateReadCount(bb);
 		BoardBean bb2 = boardService.getBoard(bb);
 
 		session.setAttribute("id", id);
@@ -175,8 +177,10 @@ public class BoardController {
 		BoardBean bb = new BoardBean();
 		bb.setNum(Integer.parseInt(request.getParameter("num")));
 		bb.setCategory("recipe");
+		
+		boardService.updateReadCount(bb);
 		BoardBean bb2 = boardService.getBoard(bb);
-
+		
 		session.setAttribute("id", id);
 		model.addAttribute("bb", bb2);
 		return "/board/recipe/content";
@@ -287,6 +291,7 @@ public class BoardController {
 		bb.setNum(Integer.parseInt(request.getParameter("num")));
 		bb.setCategory("picture");
 
+		boardService.updateReadCount(bb);
 		BoardBean bb2 = boardService.getBoard(bb);
 
 		session.setAttribute("id", id);

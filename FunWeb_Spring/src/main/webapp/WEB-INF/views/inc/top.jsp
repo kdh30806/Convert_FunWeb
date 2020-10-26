@@ -22,9 +22,9 @@
 <nav id="top_menu">
 <ul>
 	<li style="margin: 0px 20px;"><a href='<c:url value="/main"/>'>HOME</a></li>
-	<li style="margin: 0px 20px;"><a href='<c:url value="company"/>'>COMPANY</a></li>
+	<li style="margin: 0px 20px;"><a href='<c:url value="/company"/>'>COMPANY</a></li>
 	<li style="margin: 0px 20px;"><a href='<c:url value="/board/notice/main"/>'>BOARD</a></li>
-	<li style="margin: 0px 20px;"><a href='<c:url value="mail"/>'>CONTACT US</a></li>
+	<li style="margin: 0px 20px;"><a href='<c:url value="/mail"/>'>CONTACT US</a></li>
 </ul>
 </nav>
 </header>

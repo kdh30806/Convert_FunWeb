@@ -29,7 +29,7 @@
 
 <!-- 게시판 -->
 <article>
-<h1>Notice</h1>
+<h1>Recipe</h1>
 <table id="notice">
 <tr><th class="tno">No.</th>
     <th class="ttitle">Title</th>

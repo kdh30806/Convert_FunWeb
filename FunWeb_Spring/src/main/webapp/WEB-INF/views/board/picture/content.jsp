@@ -27,7 +27,7 @@
 
 <!-- 게시판 -->
 <article>
-<h1>Image</h1>
+<h1>Picture</h1>
 <form method="post" enctype="multipart/form-data">
 <table border="1" id="notice">
 <tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>

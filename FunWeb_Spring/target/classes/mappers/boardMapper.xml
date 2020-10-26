@@ -32,5 +32,9 @@
 	<delete id="deleteBoard">
 		delete from ${category} where num=#{num}
 	</delete>
+	
+	<update id="updateReadCount">
+		update ${category} set readcount = readcount + 1 where num=#{num}
+	</update>
 
 </mapper>

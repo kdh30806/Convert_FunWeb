@@ -26,7 +26,7 @@
 
 <!-- 게시판 -->
 <article>
-<h1>Image</h1>
+<h1>Picture</h1>
 <form action='<c:url value="/board/picture/update"/>' method="post" enctype="multipart/form-data">
 <input type="hidden" name="num" value="${bb.num }">
 <table border="1" id="notice">
