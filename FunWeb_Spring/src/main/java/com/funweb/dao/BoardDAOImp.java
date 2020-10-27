@@ -72,4 +72,9 @@ public class BoardDAOImp implements BoardDAO{
 	public List<comment> getCommentList(BoardBean bb) {
 		return sqlSession.selectList(namespace+".getCommentList",bb);
 	}
+
+	@Override
+	public List<BoardBean> getHotRecipeList() {
+		return sqlSession.selectList(namespace+".getHotRecipeList");
+	}
 }

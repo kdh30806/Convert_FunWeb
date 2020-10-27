@@ -48,7 +48,8 @@ public class MainController {
 //		pb.setCount(boardService.getBoardCount());
 //		
 //		List<BoardBean> boardList_notice=boardService.getBoardList(pb);
-		
+		System.out.println("@@@@@@@@@@@@@@@@2222");
+		System.out.println(org.springframework.core.SpringVersion.getVersion());
 		return "main";
 	}
 	

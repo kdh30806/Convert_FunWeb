@@ -30,4 +30,6 @@ public interface BoardDAO {
 
 	List<comment> getCommentList(BoardBean bb);
 
+	List<BoardBean> getHotRecipeList();
+
 }

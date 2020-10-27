@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 <link href='<c:url value="/resources/css/default.css" />' rel="stylesheet" type="text/css">
 <link href='<c:url value="/resources/css/front.css" />' rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src='<c:url value="/resources/js/main.js"/>'></script>
 </head>
 <body>
 <div id="wrap">
@@ -35,10 +37,8 @@
 
 <div id="news_notice">
 <h3 style="color: #827b00">최근 핫 레시피</h3>
-<table>
-<tr><td id="contxt"><a href="#">제목</a></td>
-    <td>날짜</td><td>조회수</td></tr>
-
+<table class="hot_recipe">
+<tr><td id="contxt"><a href="#">제목</a></td><td>날짜</td><td>조회수</td></tr>
 </table>
 </div>
 

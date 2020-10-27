@@ -89,4 +89,9 @@ public class BoardServiceImp implements BoardService{
 		return boardDAO.getCommentList(bb);
 	}
 
+	@Override
+	public List<BoardBean> getHotRecipeList() {
+		return boardDAO.getHotRecipeList();
+	}
+
 }

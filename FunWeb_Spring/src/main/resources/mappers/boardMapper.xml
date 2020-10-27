@@ -48,5 +48,9 @@
 	<select id="getCommentList" resultType="com.funweb.domain.comment">
 		select * from ${category+"comment"} where ref=#{num}
 	</select>
+	
+	<select id="getHotRecipeList" resultType="com.funweb.domain.BoardBean">
+		select * from recipe order by readcount desc limit 0,5
+	</select>
 
 </mapper>
