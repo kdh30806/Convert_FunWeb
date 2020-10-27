@@ -8,7 +8,16 @@ public class comment {
 	private String content;
 	private Timestamp date;
 	private int ref;
+	private String category;
 	
+	
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public int getNum() {
 		return num;
 	}

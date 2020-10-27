@@ -40,5 +40,13 @@
 	<update id="recommandBoard">
 		update ${category} set recommand = recommand + 1 where num=#{num}
 	</update>
+	
+	<insert id="writeComment">
+		insert into ${category}(num,name,content,ref) values(#{num},#{name},#{content},#{ref})
+	</insert>
+	
+	<select id="getCommentList" resultType="com.funweb.domain.comment">
+		select * from ${category+"comment"} where ref=#{num}
+	</select>
 
 </mapper>

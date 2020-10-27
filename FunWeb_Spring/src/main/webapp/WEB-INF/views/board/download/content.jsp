@@ -46,19 +46,6 @@
 </div>
 </form>
 <div class="clear"></div>
-<hr>
-<h2>Comment</h2>
-<form action="CommentPro.jsp" method="get">
-<input type= "hidden"  name="name" value="${sessionScope.id }">
-<input type= "hidden"  name="ref" value="${bb.name }">
-<textarea rows="3" cols="50" name="content" ></textarea><input type="submit" value="댓글등록" class="btn">
-</form>
-<hr>
-<table>
-<%-- <tr><td><b><%=cb.getName()%></b></td></tr> --%>
-<%-- <tr><td colspan="3"><%=cb.getContent()%></td></tr> --%>
-<%-- <tr><td><%=cb.getDate()%></td></tr> --%>
-</table>
 </article>
 
 <div class="clear"></div>

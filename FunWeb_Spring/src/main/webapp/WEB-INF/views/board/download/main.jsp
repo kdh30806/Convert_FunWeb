@@ -60,7 +60,7 @@
 <c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage}" step="1">
 	<a href='<c:url value="/board/download/main?pageNum=${i}"/>'>${i}</a>
 </c:forEach>
-<c:if test="${pb.endPage < pb.pageBlock }">
+<c:if test="${pb.endPage > pb.pageBlock }">
 	<a href='<c:url value="/board/download/main?pageNum=${pb.startPage+pb.pageBlock}"/>'>Next</a>
 </c:if>
 </div>

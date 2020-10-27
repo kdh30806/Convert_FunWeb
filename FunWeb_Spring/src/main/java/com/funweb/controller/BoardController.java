@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
+import com.funweb.domain.comment;
 import com.funweb.service.BoardService;
 
 @Controller
@@ -297,9 +298,12 @@ public class BoardController {
 
 		boardService.updateReadCount(bb);
 		BoardBean bb2 = boardService.getBoard(bb);
+		
+		List<comment> commentList = boardService.getCommentList(bb);
 
 		session.setAttribute("id", id);
 		model.addAttribute("bb", bb2);
+		model.addAttribute("commentList",commentList);
 		return "/board/picture/content";
 	}
 
@@ -430,10 +434,11 @@ public class BoardController {
 	public String downloadContent(HttpSession session, HttpServletRequest request, Model model) {
 
 		String id = (String) session.getAttribute("id");
-		BoardBean bb = new BoardBean();
+		
+		BoardBean bb = new BoardBean();		
 		bb.setNum(Integer.parseInt(request.getParameter("num")));
 		bb.setCategory("download");
-
+		
 		boardService.updateReadCount(bb);
 		BoardBean bb2 = boardService.getBoard(bb);
 
@@ -443,6 +448,8 @@ public class BoardController {
 			originFile = originFile + spitFile[i];
 		}
 		bb2.setRealFile(originFile);
+		
+
 
 		session.setAttribute("id", id);
 		model.addAttribute("bb", bb2);
@@ -565,5 +572,14 @@ public class BoardController {
 			}
 		}
 		return "redirect:/board/download/content?num="+num;
+	}
+	
+	@RequestMapping(value = "/board/picture/comment", method = RequestMethod.POST)
+	public String pictureComment(comment comment) {
+		
+		comment.setCategory("picturecomment");
+		boardService.writeComment(comment);
+		
+		return "redirect:/board/picture/content"+comment.getRef();		
 	}
 }

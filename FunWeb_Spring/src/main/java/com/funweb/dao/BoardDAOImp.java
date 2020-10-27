@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
+import com.funweb.domain.comment;
 
 @Repository
 public class BoardDAOImp implements BoardDAO{
@@ -60,5 +61,15 @@ public class BoardDAOImp implements BoardDAO{
 	@Override
 	public void recommandBoard(BoardBean bb) {
 		sqlSession.update(namespace+".recommandBoard",bb);
+	}
+
+	@Override
+	public void wrtieComment(comment comment) {
+		sqlSession.insert(namespace+".writeComment",comment);
+	}
+
+	@Override
+	public List<comment> getCommentList(BoardBean bb) {
+		return sqlSession.selectList(namespace+".getCommentList",bb);
 	}
 }

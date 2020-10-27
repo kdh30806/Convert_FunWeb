@@ -49,19 +49,22 @@
 <div class="clear"></div>
 <hr>
 <h2>Comment</h2>
-<form action="CommentPro.jsp" method="get">
+<c:if test="${! empty sessionScope.id }">
+<form action='<c:url value="/board/picture/comment"/>' method="post">
 <input type= "hidden"  name="name" value="${sessionScope.id }">
-<input type= "hidden"  name="ref" value="${bb.name }">
+<input type= "hidden"  name="ref" value="${bb.num}">
 <textarea rows="3" cols="50" name="content" ></textarea><input type="submit" value="댓글등록" class="btn">
 </form>
+</c:if>
 <hr>
+<c:forEach var="cl" items="${commentList }">
 <table>
-<%-- <tr><td><b><%=cb.getName()%></b></td></tr> --%>
-<%-- <tr><td colspan="3"><%=cb.getContent()%></td></tr> --%>
-<%-- <tr><td><%=cb.getDate()%></td></tr> --%>
+<tr><td><b>${cl.name }</b></td></tr>
+<tr><td colspan="3">${cl.content }</td></tr>
+<tr><td>${cl.date }</td></tr>
 </table>
+</c:forEach>
 </article>
-
 <div class="clear"></div>
 <article>
 <div id="page_control">

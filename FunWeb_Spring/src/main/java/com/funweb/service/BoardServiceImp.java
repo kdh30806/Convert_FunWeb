@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.funweb.dao.BoardDAO;
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
+import com.funweb.domain.comment;
 
 @Repository
 public class BoardServiceImp implements BoardService{
@@ -41,7 +42,6 @@ public class BoardServiceImp implements BoardService{
 		} else {
 			bb.setNum(boardDAO.getMaxNum(bb.getCategory()) + 1);
 		}
-		System.out.println(bb.getNum());
 		
 		boardDAO.writeBoard(bb);
 		
@@ -70,6 +70,23 @@ public class BoardServiceImp implements BoardService{
 	@Override
 	public void recommandBoard(BoardBean bb) {
 		boardDAO.recommandBoard(bb);
+	}
+
+	@Override
+	public void writeComment(comment comment) {
+		
+		if(boardDAO.getMaxNum(comment.getCategory()) == null) {
+			comment.setNum(1);
+		} else {
+			comment.setNum(boardDAO.getMaxNum(comment.getCategory()) + 1);
+		}
+		
+		boardDAO.wrtieComment(comment);
+	}
+
+	@Override
+	public List<comment> getCommentList(BoardBean bb) {
+		return boardDAO.getCommentList(bb);
 	}
 
 }

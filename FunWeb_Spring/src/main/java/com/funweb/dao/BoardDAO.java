@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
+import com.funweb.domain.comment;
 
 public interface BoardDAO {
 
@@ -24,5 +25,9 @@ public interface BoardDAO {
 	void updateReadCount(BoardBean bb);
 
 	void recommandBoard(BoardBean bb);
+
+	void wrtieComment(comment comment);
+
+	List<comment> getCommentList(BoardBean bb);
 
 }

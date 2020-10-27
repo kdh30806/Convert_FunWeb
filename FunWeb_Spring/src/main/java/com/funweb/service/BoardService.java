@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.funweb.domain.BoardBean;
 import com.funweb.domain.PageBean;
+import com.funweb.domain.comment;
 
 public interface BoardService {
 
@@ -15,5 +16,7 @@ public interface BoardService {
 	void deleteBoard(BoardBean bb);
 	void updateReadCount(BoardBean bb);
 	void recommandBoard(BoardBean bb);
+	void writeComment(comment comment);
+	List<comment> getCommentList(BoardBean bb);
 
 }
