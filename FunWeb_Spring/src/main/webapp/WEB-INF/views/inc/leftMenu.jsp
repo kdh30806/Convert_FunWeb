@@ -6,6 +6,6 @@
 <li><a href='<c:url value="/board/notice/main" />'>notice</a></li>
 <li><a href='<c:url value="/board/recipe/main" />'>recipe</a></li>
 <li><a href='<c:url value="/board/picture/main" />'>picture</a></li>
-<li><a href='<c:url value="/board/notice/downloadMain" />'>download</a></li>
+<li><a href='<c:url value="/board/download/main" />'>download</a></li>
 </ul>
 </nav>

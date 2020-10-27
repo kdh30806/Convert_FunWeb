@@ -1,13 +1,17 @@
 package com.funweb.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -81,7 +85,7 @@ public class BoardController {
 		BoardBean bb = new BoardBean();
 		bb.setNum(Integer.parseInt(request.getParameter("num")));
 		bb.setCategory("notice");
-		
+
 		boardService.updateReadCount(bb);
 		BoardBean bb2 = boardService.getBoard(bb);
 
@@ -177,10 +181,10 @@ public class BoardController {
 		BoardBean bb = new BoardBean();
 		bb.setNum(Integer.parseInt(request.getParameter("num")));
 		bb.setCategory("recipe");
-		
+
 		boardService.updateReadCount(bb);
 		BoardBean bb2 = boardService.getBoard(bb);
-		
+
 		session.setAttribute("id", id);
 		model.addAttribute("bb", bb2);
 		return "/board/recipe/content";
@@ -346,7 +350,7 @@ public class BoardController {
 
 		return "redirect:/board/picture/main";
 	}
-	
+
 	@RequestMapping(value = "/board/picture/recommend", method = RequestMethod.GET)
 	public String pictureRecommend(HttpServletRequest request) {
 
@@ -357,7 +361,209 @@ public class BoardController {
 
 		boardService.recommandBoard(bb);
 
-		return "redirect:/board/picture/content?num="+num;
+		return "redirect:/board/picture/content?num=" + num;
 	}
 
+//===============================================================================================
+//==========================================download===============================================	
+
+	@RequestMapping(value = "/board/download/main", method = RequestMethod.GET)
+	public String downloadMain(HttpSession session, HttpServletRequest request, Model model) {
+
+		String id = (String) session.getAttribute("id");
+		String pageNum = request.getParameter("pageNum");
+		String category = "download";
+		PageBean pb = new PageBean();
+		pb.setPageSize(4);
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		pb.setPageNum(pageNum);
+		pb.setCategory(category);
+		List<BoardBean> downloadList = boardService.getBoardList(pb);
+
+		pb.setCount(boardService.getBoardCount(category));
+
+		session.setAttribute("id", id);
+		model.addAttribute("downloadList", downloadList);
+		model.addAttribute("pb", pb);
+
+		return "/board/download/main";
+	}
+
+	@RequestMapping(value = "/board/download/write", method = RequestMethod.GET)
+	public String downloadWrite(HttpSession session) {
+
+		String id = (String) session.getAttribute("id");
+		session.setAttribute("id", id);
+
+		return "/board/download/write";
+	}
+
+	@RequestMapping(value = "/board/download/write", method = RequestMethod.POST)
+	public String downloadWritePost(HttpServletRequest request, MultipartFile file) throws IOException {
+//		System.out.println("@@@@@@@@@@@@@@@");
+//		System.out.println("파일이름 : " + file.getOriginalFilename());
+//		System.out.println("파일크기 : " + file.getSize());
+//		System.out.println("파일타입 : " + file.getContentType());
+		String category = "download";
+
+		UUID uid = UUID.randomUUID();
+		String saveName = uid.toString() + "_" + file.getOriginalFilename();
+
+		File target = new File(uploadPath, saveName);
+		FileCopyUtils.copy(file.getBytes(), target);
+
+		BoardBean bb = new BoardBean();
+		bb.setCategory(category);
+		bb.setContent(request.getParameter("content"));
+		bb.setFile(saveName);
+		bb.setName(request.getParameter("name"));
+		bb.setSubject(request.getParameter("subject"));
+
+		boardService.writeBoard(bb);
+
+		return "redirect:/main";
+	}
+
+	@RequestMapping(value = "/board/download/content", method = RequestMethod.GET)
+	public String downloadContent(HttpSession session, HttpServletRequest request, Model model) {
+
+		String id = (String) session.getAttribute("id");
+		BoardBean bb = new BoardBean();
+		bb.setNum(Integer.parseInt(request.getParameter("num")));
+		bb.setCategory("download");
+
+		boardService.updateReadCount(bb);
+		BoardBean bb2 = boardService.getBoard(bb);
+
+		String[] spitFile = bb2.getFile().split("_");
+		String originFile = "";
+		for (int i = 1; i < spitFile.length; i++) {
+			originFile = originFile + spitFile[i];
+		}
+		bb2.setRealFile(originFile);
+
+		session.setAttribute("id", id);
+		model.addAttribute("bb", bb2);
+		return "/board/download/content";
+	}
+
+	@RequestMapping(value = "/board/download/update", method = RequestMethod.GET)
+	public String downloadUpdate(HttpSession session, HttpServletRequest request, Model model) {
+
+		String id = (String) session.getAttribute("id");
+		BoardBean bb = new BoardBean();
+		bb.setNum(Integer.parseInt(request.getParameter("num")));
+		bb.setCategory("download");
+		BoardBean bb2 = boardService.getBoard(bb);
+
+		session.setAttribute("id", id);
+		model.addAttribute("bb", bb2);
+		return "/board/download/update";
+	}
+
+	@RequestMapping(value = "/board/download/update", method = RequestMethod.POST)
+	public String downloadUpdatePost(MultipartFile file, HttpServletRequest request) throws IOException {
+
+		String category = "download";
+		UUID uid = UUID.randomUUID();
+		String saveName = uid.toString() + "_" + file.getOriginalFilename();
+
+		File target = new File(uploadPath, saveName);
+		FileCopyUtils.copy(file.getBytes(), target);
+
+		BoardBean bb = new BoardBean();
+		bb.setCategory(category);
+		bb.setNum(Integer.parseInt(request.getParameter("num")));
+		bb.setContent(request.getParameter("content"));
+		bb.setFile(saveName);
+		bb.setName(request.getParameter("name"));
+		bb.setSubject(request.getParameter("subject"));
+		boardService.updateBoard(bb);
+
+		return "redirect:/board/download/main";
+	}
+
+	@RequestMapping(value = "/board/download/delete", method = RequestMethod.GET)
+	public String downloadDelete(HttpServletRequest request) {
+
+		BoardBean bb = new BoardBean();
+		bb.setNum(Integer.parseInt(request.getParameter("num")));
+		bb.setCategory("download");
+
+		boardService.deleteBoard(bb);
+
+		return "redirect:/board/download/main";
+	}
+
+	@RequestMapping(value = "/board/download/fileDownload", method = RequestMethod.GET)
+	public String fileDownload(HttpServletRequest request, HttpServletResponse response) {
+
+		int num = Integer.parseInt(request.getParameter("num"));
+		
+		String fileName = request.getParameter("file");
+		String path = request.getSession().getServletContext().getRealPath("/resources/upload/"+fileName);
+		
+		System.out.println(path);
+
+		File file = new File(path);
+
+		FileInputStream fileInputStream = null;
+		ServletOutputStream servletOutputStream = null;
+
+		try {
+			String downName = null;
+			String browser = request.getHeader("User-Agent");
+			// 파일 인코딩
+			if (browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")) {// 브라우저 확인 파일명
+																										// encode
+
+				downName = URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
+
+			} else {
+
+				downName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
+
+			}
+
+			response.setHeader("Content-Disposition", "attachment;filename=\"" + downName + "\"");
+			response.setContentType("application/octer-stream");
+			response.setHeader("Content-Transfer-Encoding", "binary;");
+
+			fileInputStream = new FileInputStream(file);
+			servletOutputStream = response.getOutputStream();
+
+			byte b[] = new byte[1024];
+			int data = 0;
+
+			while ((data = (fileInputStream.read(b, 0, b.length))) != -1) {
+
+				servletOutputStream.write(b, 0, data);
+
+			}
+
+			servletOutputStream.flush();// 출력
+
+			return "redirect:/board/download/main";
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (servletOutputStream != null) {
+				try {
+					servletOutputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if (fileInputStream != null) {
+				try {
+					fileInputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return "redirect:/board/download/content?num="+num;
+	}
 }

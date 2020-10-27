@@ -14,11 +14,19 @@ public class BoardBean {
 	private int readcount;
 	private Timestamp date;
 	private String file;
+	private String realFile;
 	private int recommand;
 	private int commentCount;
 	
 	
 	
+	
+	public String getRealFile() {
+		return realFile;
+	}
+	public void setRealFile(String realFile) {
+		this.realFile = realFile;
+	}
 	public String getCategory() {
 		return category;
 	}
