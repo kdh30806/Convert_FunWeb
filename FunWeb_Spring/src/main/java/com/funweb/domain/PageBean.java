@@ -13,8 +13,17 @@ public class PageBean {
 	private int startPage;
 	private int endPage;
 	private String category;
+	private String search;
 	
 	
+	
+	
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	public String getCategory() {
 		return category;
 	}

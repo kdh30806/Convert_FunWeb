@@ -18,11 +18,21 @@ public class RestAjaxController {
 	private BoardService boardService;
 	
 	@PostMapping("/AJAX_recipeList")
-	public List<BoardBean> AJAX_recipeList() {
-		
-		List<BoardBean> recipeList = boardService.getHotRecipeList();
-		System.out.println(recipeList.get(0).getContent());
-		return recipeList;
+	public List<BoardBean> AJAX_recipeList() {		
+		return boardService.getHotRecipeList();
+	}
+	
+	@PostMapping("/AJAX_notice")
+	public List<BoardBean> AJAX_noticeList() {	
+		List<BoardBean> noticeList = boardService.getNoticeList();
+		System.out.println("@@@@@@@@@@@@@@@@@");
+		System.out.println(noticeList.get(0).getContent());
+		return noticeList;
+	}
+	
+	@PostMapping("/AJAX_picture")
+	public List<BoardBean> AJAX_pictureList() {	
+		return boardService.getPictureList();
 	}
 
 }

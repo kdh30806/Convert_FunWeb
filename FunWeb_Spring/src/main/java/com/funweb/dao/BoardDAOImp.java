@@ -77,4 +77,19 @@ public class BoardDAOImp implements BoardDAO{
 	public List<BoardBean> getHotRecipeList() {
 		return sqlSession.selectList(namespace+".getHotRecipeList");
 	}
+
+	@Override
+	public List<BoardBean> getNoticeList() {
+		return sqlSession.selectList(namespace+".getNoticeList");
+	}
+
+	@Override
+	public List<BoardBean> getPictureList() {
+		return sqlSession.selectList(namespace+".getPictureList");
+	}
+
+	@Override
+	public List<BoardBean> getBoardSearchList(PageBean pb) {
+		return sqlSession.selectList(namespace+".getBoardSearchList",pb);
+	}
 }

@@ -32,4 +32,10 @@ public interface BoardDAO {
 
 	List<BoardBean> getHotRecipeList();
 
+	List<BoardBean> getNoticeList();
+
+	List<BoardBean> getPictureList();
+
+	List<BoardBean> getBoardSearchList(PageBean pb);
+
 }

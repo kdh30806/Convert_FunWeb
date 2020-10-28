@@ -582,4 +582,30 @@ public class BoardController {
 		
 		return "redirect:/board/picture/content"+comment.getRef();		
 	}
+
+//=========================================================================================
+	
+	@RequestMapping(value = "/board/search", method = RequestMethod.POST)
+	public String search(HttpServletRequest request, PageBean pb, HttpSession session, Model model) {
+		
+		String id = (String) session.getAttribute("id");
+		String pageNum = request.getParameter("pageNum");
+
+		pb.setPageSize(4);
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		pb.setPageNum(pageNum);
+		pb.setCount(boardService.getBoardCount(pb.getCategory()));
+		List<BoardBean> boardList = boardService.getBoardSearchList(pb);
+
+		session.setAttribute("id", id);
+		model.addAttribute(pb.getCategory()+"List", boardList);
+		model.addAttribute("pb", pb);
+				
+		return "/board/"+pb.getCategory()+"/main";		
+	}
+	
+	
+	
 }

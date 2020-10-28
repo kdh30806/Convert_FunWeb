@@ -10,7 +10,56 @@
 <link href='<c:url value="/resources/css/default.css" />' rel="stylesheet" type="text/css">
 <link href='<c:url value="/resources/css/front.css" />' rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src='<c:url value="/resources/js/main.js"/>'></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+
+	$.ajax({		
+		url: "AJAX_recipeList",
+		type: "POST",
+		contentType: "application/json; charset=utf-8;",
+		dataType: "json",
+		success: function(data){
+			for(var i = 0 ; i < data.length ; i++){
+				$('.hot_recipe').append("<tr><td id='contxt'><a href='#'>"+data[i].subject+"</a></td><td>"+data[i].date+"</td><td>"+data[i].readcount+"</td></tr>");
+			}
+		},
+		error: function(data){
+			console.log();
+		}
+	});
+	
+	$.ajax({
+		url: "AJAX_notice",
+		type: "POST",
+		contentType: "application/json; charset=utf-8;",
+		dataType: "json",
+		success: function(data){
+			for(var i = 0 ; i < data.length ; i++){
+				$('.notice').append("<tr><td id='contxt'><a href='#'>"+data[i].subject+"</a></td><td>"+data[i].date+"</td><td>"+data[i].readcount+"</td></tr>");
+			}
+		},
+		error: function(data){
+			console.log();
+		}	
+	});
+	
+	$.ajax({
+		url: "AJAX_picture",
+		type: "POST",
+		contentType: "application/json; charset=utf-8;",
+		dataType: "json",
+		success: function(data){
+			for(var i = 0 ; i < data.length ; i++){
+				$('#imageBoard').append('<td id="mainPicture"><a href="#"><img src="<c:url value="/resources/upload/'+data[i].file+'" />" width="150" height="130"></a></td>');
+			}
+		},
+		error: function(data){
+			console.log();
+		}	
+	});
+	
+});
+</script>
 </head>
 <body>
 <div id="wrap">
@@ -24,31 +73,22 @@
 <!-- 메인 콘텐츠 들어가는 곳 -->
 <article id="front">
 <div id="solution">
-
-	<div id="security">
-<table id="imageBoard" style="margin-left: 70px;">
-	  <tr><td><a href="#">
-	          <img src="../upload/" width="150" height="130"></a></td></tr>
-</table>
-	</div>
-
+		<table id="imageBoard" style="margin-right: 40px; width: 925px; text-align: center;">
+		</table>
 </div>
 <div class="clear"></div>
 
 <div id="news_notice">
 <h3 style="color: #827b00">최근 핫 레시피</h3>
 <table class="hot_recipe">
-<tr><td id="contxt"><a href="#">제목</a></td><td>날짜</td><td>조회수</td></tr>
+	<tr><th id="contxt">제목</th><th>날짜</th><th>조회수</th></tr>
 </table>
 </div>
 
-<div id="news_notice">
+<div id="news_notice" style="margin-left: 60px;">
 <h3 class="brown">공지사항</h3>
-<table>
-
-<tr><td id="contxt"><a href="#">제목</a></td>
-    <td>날짜</td></tr>
-
+<table class="notice">
+	<tr><th id="contxt">제목</th><th>날짜</th><th>조회수</th></tr>
 </table>
 </div>
 </article>

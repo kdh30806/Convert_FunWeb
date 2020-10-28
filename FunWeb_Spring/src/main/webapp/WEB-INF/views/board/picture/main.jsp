@@ -41,11 +41,14 @@
 </article>
 <article>
 <div id="table_search">
+<form action='<c:url value="/board/search"/>' method="post">
+<input type="hidden" name="category" value="picture">
 <input type="text" name="search" class="input_box">
-<input type="button" value="검색" class="btn"> 
+<input type="submit" value="검색" class="btn"> 
 <c:if test="${! empty sessionScope.id }">
 	<a href='<c:url value="/board/picture/write"/>'><input type="button" value="글쓰기" class="btn"></a>
 </c:if>
+</form>
 </div>
 </article>
 <div class="clear"></div>

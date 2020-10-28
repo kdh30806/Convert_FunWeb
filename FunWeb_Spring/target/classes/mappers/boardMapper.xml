@@ -52,5 +52,17 @@
 	<select id="getHotRecipeList" resultType="com.funweb.domain.BoardBean">
 		select * from recipe order by readcount desc limit 0,5
 	</select>
+	
+	<select id="getNoticeList" resultType="com.funweb.domain.BoardBean">
+		select * from notice order by num desc limit 0,5
+	</select>
+	
+	<select id="getPictureList" resultType="com.funweb.domain.BoardBean">
+		select * from picture order by recommand desc limit 0,3
+	</select>
+	
+	<select id="getBoardSearchList" resultType="com.funweb.domain.BoardBean">
+		select * from ${category} where subject like '%${search}%' order by num limit #{startRow},#{pageSize} 
+	</select>
 
 </mapper>

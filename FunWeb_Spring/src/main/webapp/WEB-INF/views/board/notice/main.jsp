@@ -46,7 +46,8 @@
 </c:forEach>
 </table>
 <div id="table_search">
-<form action="noticeSearch.jsp" method="post">
+<form action='<c:url value="/board/search"/>' method="post">
+<input type="hidden" name="category" value="notice">
 <input type="text" name="search" class="input_box">
 <input type="submit" value="검색" class="btn"> 
 <c:if test="${sessionScope.id eq 'admin'}">

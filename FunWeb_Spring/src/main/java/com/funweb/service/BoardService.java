@@ -19,5 +19,8 @@ public interface BoardService {
 	void writeComment(comment comment);
 	List<comment> getCommentList(BoardBean bb);
 	List<BoardBean> getHotRecipeList();
+	List<BoardBean> getNoticeList();
+	List<BoardBean> getPictureList();
+	List<BoardBean> getBoardSearchList(PageBean pb);
 
 }
