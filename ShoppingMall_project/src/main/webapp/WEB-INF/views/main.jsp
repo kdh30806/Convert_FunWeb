@@ -1,259 +1,417 @@
 <!doctype html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="author"
+	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Jekyll v4.1.1">
-<title>Blog Template · Bootstrap</title>
-<link rel="canonical" href='<c:url value="https://getbootstrap.com/docs/4.5/examples/blog/"/>'>	
-    <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href='<c:url value="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"/>' integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-<link href='<c:url value="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"/>' rel="stylesheet">
-    <!-- Custom styles for this template -->
+<title>Blog Template Â· Bootstrap</title>
+<link rel="canonical"
+	href='<c:url value="https://getbootstrap.com/docs/4.5/examples/blog/"/>'>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href='<c:url value="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"/>'
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+<link rel="stylesheet" href='<c:url value=""/>'
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+<script
+	src='<c:url value="https://code.jquery.com/jquery-3.5.1.slim.min.js"/>'
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src='<c:url value="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"/>'
+	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+	crossorigin="anonymous"></script>
+<!-- Custom styles for this template -->
+<link
+	href='<c:url value="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"/>'
+	rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href='<c:url value="/resources/css/default.css"/>' rel="stylesheet">
 <link href='<c:url value="/resources/css/main.css"/>' rel="stylesheet">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+<link
+	href='<c:url value="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Single+Day&display=swap"/>'
+	rel="stylesheet">
+</head>
+<body>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+<jsp:include page="inc/top.jsp"/>
 
-  </head>
-  <body>
-    <div class="container">
-  <header class="blog-header py-3">
-    <div class="navbar fixed-top navbar-light bg-light">
-      <div class="col-4 pt-1">
-      </div>
-      <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#">Hyuni's shop</a>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" href="#">JOIN</a>
-        <a class="btn btn-sm btn-outline-secondary" href="#" style="margin-left: 3px;">LOGIN</a>
-        <a class="text-muted" href="#" aria-label="Search" style="margin-left: 10px;">
-		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
- 			 <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
- 			 <path fill-rule="evenodd" d="M6 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
-		</svg>
-        </a>
-      </div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="topMenu">
-    <ul class="nav justify-content-center" style="width: 100%;">
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Best</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Weekly</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Event</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">1+1 Set</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Outer</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Top</a>
-      </li>   
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Pants</a>
-      </li>   
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Shoes</a>
-      </li>   
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Bag</a>
-      </li>   
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Acc</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Beauty</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Q&A</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Review</a>
-      </li>       
-    </ul>
-	</nav>
-</div>
-  </header>
-  
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-    </div>
-  </div>
+	<div id="main">
 
-  <div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Featured post</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Post title</h3>
-          <div class="mb-1 text-muted">Nov 11</div>
-          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+		<div id="carouselExampleIndicators" class="carousel slide"
+			data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<!-- Slide One - Set the background image for this slide in the line below -->
+				<div class="carousel-item active"
+					style="background-image: url('<c:url value="/resources/images/메인사진1.jpg"/>')">
+<!-- 					<div class="carousel-caption d-none d-md-block"> -->
+<!-- 					</div> -->
+				</div>
+				<!-- Slide Two - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('<c:url value="/resources/images/메인사진2.jpg"/>')">
+				</div>
+				<!-- Slide Three - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('<c:url value="/resources/images/메인사진3.jpg"/>')">
+				</div>
+			</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators"
+					role="button" data-slide="prev"> 
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span> 
+					<span class="sr-only">Previous</span>
+				</a> 
+				<a class="carousel-control-next" href="#carouselExampleIndicators"
+					role="button" data-slide="next"> 
+					<span class="carousel-control-next-icon" aria-hidden="true"></span> 
+					<span class="sr-only">Next</span>
+				</a>
+		</div>
 
-<main role="main" class="container">
-  <div class="row">
-    <div class="col-md-8 blog-main">
-      <h3 class="pb-4 mb-4 font-italic border-bottom">
-        From the Firehose
-      </h3>
+		<div id="main_prd">
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">Sample blog post</h2>
-        <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+			<div id="subject">
+				<h2>WEEKLY BEST</h2>
+				<p>한주간 실시간 판매 베스트 상품입니다.</p>
+			</div>
 
-        <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-        <hr>
-        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-        <blockquote>
-          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        </blockquote>
-        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-        <h2>Heading</h2>
-        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-        <h3>Sub-heading</h3>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        <pre><code>Example code block</code></pre>
-        <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-        <h3>Sub-heading</h3>
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <ul>
-          <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-          <li>Donec id elit non mi porta gravida at eget metus.</li>
-          <li>Nulla vitae elit libero, a pharetra augue.</li>
-        </ul>
-        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-        <ol>
-          <li>Vestibulum id ligula porta felis euismod semper.</li>
-          <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-          <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-        </ol>
-        <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-      </div><!-- /.blog-post -->
+			<ul id="prd_grid4">
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">Another blog post</h2>
-        <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
 
-        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-        <blockquote>
-          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        </blockquote>
-        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-      </div><!-- /.blog-post -->
+			</ul>
+		</div>
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">New feature</h2>
-        <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+		<div class="clear"></div>
 
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <ul>
-          <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-          <li>Donec id elit non mi porta gravida at eget metus.</li>
-          <li>Nulla vitae elit libero, a pharetra augue.</li>
-        </ul>
-        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-      </div><!-- /.blog-post -->
 
-      <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-      </nav>
+		<div id="main_prd">
+			<div id="subject">
+				<h2>ARRIVAL</h2>
+				<p>새 상품을 10% 할인된 가격으로</p>
+			</div>
 
-    </div><!-- /.blog-main -->
+			<ul id="prd_grid4">
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
 
-    <aside class="col-md-4 blog-sidebar">
-      <div class="p-4 mb-3 bg-light rounded">
-        <h4 class="font-italic">About</h4>
-        <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-      </div>
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid4_box">
+					<div class="prd_grid4_img">
+						<img src='<c:url value="http://placehold.it/350x450"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div id="main_prd">
+			<div id="subject">
+				<h2>ACC</h2>
+			</div>
+			
+			<ul id="prd_grid5">
 
-      <div class="p-4">
-        <h4 class="font-italic">Archives</h4>
-        <ol class="list-unstyled mb-0">
-          <li><a href="#">March 2014</a></li>
-          <li><a href="#">February 2014</a></li>
-          <li><a href="#">January 2014</a></li>
-          <li><a href="#">December 2013</a></li>
-          <li><a href="#">November 2013</a></li>
-          <li><a href="#">October 2013</a></li>
-          <li><a href="#">September 2013</a></li>
-          <li><a href="#">August 2013</a></li>
-          <li><a href="#">July 2013</a></li>
-          <li><a href="#">June 2013</a></li>
-          <li><a href="#">May 2013</a></li>
-          <li><a href="#">April 2013</a></li>
-        </ol>
-      </div>
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
+				
+				<li id="prd_grid5_box">
+					<div class="prd_grid5_img">
+						<img src='<c:url value="http://placehold.it/250x350"/>'>
+					</div>
+					<div>
+						<ul id="information">
+							<li>상품명</li>
+							<li>가격</li>
+							<li>색상</li>
+						</ul>
+					</div>
+				</li>
 
-      <div class="p-4">
-        <h4 class="font-italic">Elsewhere</h4>
-        <ol class="list-unstyled">
-          <li><a href="#">GitHub</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Facebook</a></li>
-        </ol>
-      </div>
-    </aside><!-- /.blog-sidebar -->
+			</ul>
+		</div>
+		
+		
+	</div>
+	<!-- 	main -->
 
-  </div><!-- /.row -->
+	<div class="clear"></div>
 
-</main><!-- /.container -->
-
-<footer class="blog-footer">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-  <p>
-    <a href="#">Back to top</a>
-  </p>
-</footer>
+	<footer class="blog-footer">
+		<p>
+			Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a>
+			by <a href="https://twitter.com/mdo">@mdo</a>.
+		</p>
+		<p>
+			<a href="#">Back to top</a>
+		</p>
+	</footer>
 </body>
 </html>

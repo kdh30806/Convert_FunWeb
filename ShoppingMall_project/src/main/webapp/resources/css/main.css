@@ -1,113 +1,150 @@
-/* stylelint-disable selector-list-comma-newline-after */
+@charset "UTF-8";
 
-.blog-header {
-  line-height: 1;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: 2.25rem;
+#subject p {
+	font-size: 22px;
 }
 
-.blog-header-logo:hover {
-  text-decoration: none;
+#subject p a{
+	font-size: 17px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+#main_prd{
+	height: 100%;
 }
 
-.display-4 {
-  font-size: 2.5rem;
-}
-@media (min-width: 768px) {
-  .display-4 {
-    font-size: 3rem;
-  }
+#best_item{
+	background-color: #f5f5f5;
 }
 
-.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-.nav-scroller .nav-link {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  font-size: .875rem;
-}
-
-.card-img-right {
-  height: 100%;
-  border-radius: 0 3px 3px 0;
-}
-
-.flex-auto {
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.h-250 { height: 250px; }
-@media (min-width: 768px) {
-  .h-md-250 { height: 250px; }
-}
-
-/* Pagination */
-.blog-pagination {
-  margin-bottom: 4rem;
-}
-.blog-pagination > .btn {
-  border-radius: 2rem;
-}
-
-/*
- * Blog posts
- */
-.blog-post {
-  margin-bottom: 4rem;
-}
-.blog-post-title {
-  margin-bottom: .25rem;
-  font-size: 2.5rem;
-}
-.blog-post-meta {
-  margin-bottom: 1.25rem;
-  color: #999;
-}
-
-/*
- * Footer
- */
-.blog-footer {
-  padding: 2.5rem 0;
-  color: #999;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
-}
-.blog-footer p:last-child {
-  margin-bottom: 0;
+#best_item #subject{
+	height: 150px;
+	padding-top: 50px;
+	text-align: center;
 }
 
 #topMenu {
-	width: 100%; 
-	border-top: 1px dotted; 
-	margin-top: 30px; 
+	width: 100%;
+	height: 40px;
+	margin-top: 25px;
+	border-top: 1px dotted;
 	border-color: #aaaaaa;
+}
+
+#top_menu_space {
+	margin-right: 30px;
+}
+
+/* 메인 가로폭 약 1500정도 */
+#main {
+	height: 100%;
+	margin-top: 120px;
+	font-family: "Single Day", sans-serif;
+}
+
+/* 메인페이지 상품 리스트 */
+
+#subject {
+	height: 300px;
+	padding-top: 150px;
+	text-align: center;
+}
+
+#prd_grid4 {
+	display:inline-block;
+	box-sizing: border-box;
+	padding-left: 0px;
+	list-style: none;
+	width: 100%;
+	height: 100%;
+}
+
+#prd_grid4_box {
+	box-sizing: border-box;
+	width: 25%;
+	display: table;
+	float: left;
+}
+
+.prd_grid4_img {
+	text-align: center;
+}
+
+#prd_grid5 {
+	box-sizing: border-box;
+	padding-left: 0px;
+	list-style: none;
+	width: 100%;
+}
+
+#prd_grid5_box {
+	display:inline-block;
+	box-sizing: border-box;
+	width: 20%;
+	display: table;
+	float: left;
+}
+
+.prd_grid5_img {
+	text-align: center;
+}
+
+#information {
+	padding-left: 0px;
+	list-style: none;
+	text-align: center;
+}
+
+/* 메인페이시 상품리스트 여기까지 */
+
+.carousel-item {
+	height: 75vh;
+	min-height: 300px;
+	background: no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.portfolio-item {
+	margin-bottom: 30px;
+}
+
+.clear {
+	clear: both;
+}
+
+/* hover */
+#prd-hover {
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	position: absolute;
+	margin-top: 1px;
+	font-size: 10px;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+
+.dropdown-content a:hover .dropdown-content {
+	display: block;
+}
+
+#prd-hover:hover .dropdown-content {
+	display: block;
 }
