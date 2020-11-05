@@ -40,6 +40,9 @@
 <link
 	href='<c:url value="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Single+Day&display=swap"/>'
 	rel="stylesheet">
+<link
+	href='<c:url value="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"/>'
+	rel="stylesheet">
 </head>
 <body>
 
@@ -47,7 +50,7 @@
 
 	<div id="main">
 		<div id="catrgory_subject">
-			<h2>OUTER</h2>
+			<h2>${category }</h2>
 			<p>
 				<a href='<c:url value="/outer/category?category=코트/트렌치코트"/>'>#코트/트렌치코트</a>
 				<a href='<c:url value="/outer/category?category=자켓"/>'>#자켓</a>
@@ -59,117 +62,9 @@
 			</p>
 		</div>
 
-		<div id="best_item">
-			<div id="subject">
-				<h2>BEST ITEM</h2>
-			</div>
-
-			<ul id="prd_grid4">
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-				<li id="prd_grid4_box">
-					<div class="prd_grid4_img">
-						<img src='<c:url value="http://placehold.it/350x450"/>'>
-					</div>
-					<div>
-						<ul id="information">
-							<li>상품명</li>
-							<li>가격</li>
-							<li>색상</li>
-						</ul>
-					</div>
-				</li>
-
-			</ul>
-		</div>
-
 		<div>
-			<div id="subject">
+			<div id="subject"
+				style="height: 100px; padding: 0; margin-bottom: 50px;">
 				<div class="total_prd">
 					<h5>TOTAL123PRODUCT</h5>
 				</div>

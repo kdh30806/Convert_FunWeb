@@ -6,7 +6,7 @@
 		<div class="navbar fixed-top navbar-light bg-light">
 			<div class="col-4 pt-1"></div>
 			<div class="col-4 text-center">
-				<a class="blog-header-logo text-dark" href="#">Hyuni's shop</a>
+				<a class="blog-header-logo text-dark" href='<c:url value="/"/>'>Hyuni's shop</a>
 			</div>
 			<div class="col-4 d-flex justify-content-end align-items-center">
 				<a class="btn btn-sm btn-outline-secondary" href="#">JOIN</a>
@@ -27,13 +27,13 @@
 					<li class="nav-item" id="top_menu_space"><a class="nav-link" href="#">1+1 SET</a></li>				
 					<li class="nav-item" id="prd-hover"><a class="nav-link" href='<c:url value="/outer/main"/>'>OUTER</a>
 						<div class="dropdown-content">
-							<a href="#">코트/트렌치코트</a>
-							<a href="#">자켓</a>
-							<a href="#">점퍼</a>
-							<a href="#">가디건</a>
-							<a href="#">집업</a>
-							<a href="#">조끼</a>
-							<a href="#">야상</a>
+							<a href='<c:url value="/outer/category?category=코트/트렌치코트"/>'>코트/트렌치코트</a>
+				  			<a href='<c:url value="/outer/category?category=자켓"/>'>자켓</a>
+							<a href='<c:url value="/outer/category?category=점퍼"/>'>점퍼</a> 
+							<a href='<c:url value="/outer/category?category=가디건"/>'>가디건</a>
+							<a href='<c:url value="/outer/category?category=집업"/>'>집업</a>
+							<a href='<c:url value="/outer/category?category=조끼"/>'>조끼</a>
+							<a href='<c:url value="/outer/category?category=야상"/>'>야상</a>
 						</div>
 					</li>
 					<li class="nav-item" id="prd-hover"><a class="nav-link" href="#">TOP</a>
