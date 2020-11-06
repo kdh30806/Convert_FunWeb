@@ -21,10 +21,10 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"
 				id="topMenu">
 				<ul class="nav justify-content-center" style="width: 100%;">
-					<li class="nav-item"><a class="nav-link" href='<c:url value="#"/>'>BEST</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">WEEKLY</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">EVENT</a></li>
-					<li class="nav-item" id="top_menu_space"><a class="nav-link" href="#">1+1 SET</a></li>				
+					<li class="nav-item"><a class="nav-link" href='<c:url value="/best/main"/>'>BEST</a></li>
+					<li class="nav-item"><a class="nav-link" href='<c:url value="/weekly/main"/>'>WEEKLY</a></li>
+					<li class="nav-item"><a class="nav-link" href='<c:url value="/event/main"/>'>EVENT</a></li>
+					<li class="nav-item" id="top_menu_space"><a class="nav-link" href='<c:url value="/plus/main"/>'>1+1 SET</a></li>				
 					<li class="nav-item" id="prd-hover"><a class="nav-link" href='<c:url value="/outer/main"/>'>OUTER</a>
 						<div class="dropdown-content">
 							<a href='<c:url value="/outer/category?category=코트/트렌치코트"/>'>코트/트렌치코트</a>
@@ -81,7 +81,7 @@
 						</div>
 					</li>
 					<li class="nav-item" id="top_menu_space"><a class="nav-link" href='<c:url value="/beauty/main"/>'>BEAUTY</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
+					<li class="nav-item"><a class="nav-link" href='<c:url value="/question_answer/main"/>'>Q&A</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">REVIEW</a></li>
 				</ul>
 			</nav>

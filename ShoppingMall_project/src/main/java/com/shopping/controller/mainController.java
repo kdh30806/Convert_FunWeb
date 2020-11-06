@@ -9,6 +9,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class mainController {
+	
+	@RequestMapping(value = "/best/main", method= RequestMethod.GET)
+	public String BEST_main() {
+		
+		return "/best/main";
+	}
+	
+	@RequestMapping(value = "/weekly/main", method= RequestMethod.GET)
+	public String WEEKLY_main() {
+		
+		return "/weekly/main";
+	}
+	
+	@RequestMapping(value = "/event/main", method= RequestMethod.GET)
+	public String EVENT_main() {
+		
+		return "/event/main";
+	}
+	
+	@RequestMapping(value = "/plus/main", method= RequestMethod.GET)
+	public String plus_main() {
+		
+		return "/plus/main";
+	}
+	
 
 	@RequestMapping(value = "/outer/main", method= RequestMethod.GET)
 	public String OUTER_main() {
@@ -40,38 +65,6 @@ public class mainController {
 		model.addAttribute("category", category);
 		
 		return "/top/category";
-	}
-	
-	@RequestMapping(value = "/acc/main", method= RequestMethod.GET)
-	public String ACC_main() {
-		
-		return "/acc/main";
-	}
-	
-	@RequestMapping(value = "/acc/category", method= RequestMethod.GET)
-	public String ACC_category(HttpServletRequest request, Model model) {
-		
-		String category = request.getParameter("category");
-		
-		model.addAttribute("category", category);
-		
-		return "/acc/category";
-	}
-	
-	@RequestMapping(value = "/bag/main", method= RequestMethod.GET)
-	public String BAG_main() {
-		
-		return "/bag/main";
-	}
-	
-	@RequestMapping(value = "/bag/category", method= RequestMethod.GET)
-	public String BAG_category(HttpServletRequest request, Model model) {
-		
-		String category = request.getParameter("category");
-		
-		model.addAttribute("category", category);
-		
-		return "/bag/category";
 	}
 	
 	@RequestMapping(value = "/pants/main", method= RequestMethod.GET)
@@ -106,9 +99,50 @@ public class mainController {
 		return "/shoes/category";
 	}
 	
+	@RequestMapping(value = "/bag/main", method= RequestMethod.GET)
+	public String BAG_main() {
+		
+		return "/bag/main";
+	}
+	
+	@RequestMapping(value = "/bag/category", method= RequestMethod.GET)
+	public String BAG_category(HttpServletRequest request, Model model) {
+		
+		String category = request.getParameter("category");
+		
+		model.addAttribute("category", category);
+		
+		return "/bag/category";
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/acc/main", method= RequestMethod.GET)
+	public String ACC_main() {
+		
+		return "/acc/main";
+	}
+	
+	@RequestMapping(value = "/acc/category", method= RequestMethod.GET)
+	public String ACC_category(HttpServletRequest request, Model model) {
+		
+		String category = request.getParameter("category");
+		
+		model.addAttribute("category", category);
+		
+		return "/acc/category";
+	}
+	
 	@RequestMapping(value = "/beauty/main", method= RequestMethod.GET)
 	public String BEAUTY_main() {
 		
 		return "/beauty/main";
+	}
+	
+	@RequestMapping(value = "/question_answer/main", method= RequestMethod.GET)
+	public String question_answer_main() {
+		
+		return "/q&a/main";
 	}
 }
