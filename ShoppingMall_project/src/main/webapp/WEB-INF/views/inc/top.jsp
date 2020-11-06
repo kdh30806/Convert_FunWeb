@@ -36,51 +36,51 @@
 							<a href='<c:url value="/outer/category?category=야상"/>'>야상</a>
 						</div>
 					</li>
-					<li class="nav-item" id="prd-hover"><a class="nav-link" href="#">TOP</a>
+					<li class="nav-item" id="prd-hover"><a class="nav-link" href='<c:url value="/top/main"/>'>TOP</a>
 						<div class="dropdown-content">
-							<a href="#">긴팔티</a>
-							<a href="#">맨투맨/후드</a>
-							<a href="#">반팔티</a>
-							<a href="#">니트</a>
-							<a href="#">셔츠</a>
+							<a href='<c:url value="/top/category?category=긴팔티"/>'>긴팔티</a>
+							<a href='<c:url value="/top/category?category=맨투맨/후드"/>'>맨투맨/후드</a>
+							<a href='<c:url value="/top/category?category=반팔티"/>'>반팔티</a> 
+							<a href='<c:url value="/top/category?category=니트"/>'>니트</a>
+							<a href='<c:url value="/top/category?category=셔츠"/>'>셔츠</a>
 						</div>
 					</li>
-					<li class="nav-item" id="prd-hover"><a class="nav-link" href="#">PANTS</a>
+					<li class="nav-item" id="prd-hover"><a class="nav-link" href='<c:url value="/pants/main"/>'>PANTS</a>
 						<div class="dropdown-content">
-							<a href="#">슬렉스</a>
-							<a href="#">밴딩팬츠</a>
-							<a href="#">면바지</a>
-							<a href="#">청바지</a>
-							<a href="#">반바지</a>
+							<a href='<c:url value="/pants/category?category=슬렉스"/>'>슬렉스</a>
+							<a href='<c:url value="/pants/category?category=밴딩팬츠"/>'>밴딩팬츠</a>
+							<a href='<c:url value="/pants/category?category=면바지"/>'>면바지</a> 
+							<a href='<c:url value="/pants/category?category=청바지"/>'>청바지</a>
+							<a href='<c:url value="/pants/category?category=반바지"/>'>반바지</a>
 						</div>
 					</li>
-					<li class="nav-item" id="prd-hover"><a class="nav-link" href="#">SHOES</a>
+					<li class="nav-item" id="prd-hover"><a class="nav-link" href='<c:url value="/shoes/main"/>'>SHOES</a>
 						<div class="dropdown-content">
-							<a href="#">스니커즈</a>
-							<a href="#">로퍼</a>
-							<a href="#">부츠/워커</a>
-							<a href="#">샌들</a>
+							<a href='<c:url value="/shoes/category?category=스니커즈"/>'>스니커즈</a>
+							<a href='<c:url value="/shoes/category?category=로퍼"/>'>로퍼</a>
+							<a href='<c:url value="/shoes/category?category=부츠/워커"/>'>부츠/워커</a> 
+							<a href='<c:url value="/shoes/category?category=샌들"/>'>샌들</a>
 						</div>
 					</li>
-					<li class="nav-item" id="prd-hover"><a class="nav-link" href="#">BAG</a>
+					<li class="nav-item" id="prd-hover"><a class="nav-link" href='<c:url value="/bag/main"/>'>BAG</a>
 						<div class="dropdown-content">
-							<a href="#">백팩</a>
-							<a href="#">토트백</a>
-							<a href="#">크로스백</a>
+							<a href='<c:url value="/shoes/category?category=백팩"/>'>백팩</a>
+							<a href='<c:url value="/shoes/category?category=토트백"/>'>토트백</a>
+							<a href='<c:url value="/shoes/category?category=크로스백"/>'>크로스백</a>
 
 						</div>
 					</li>
-					<li class="nav-item" id="prd-hover"><a class="nav-link" href="#">ACC</a>
+					<li class="nav-item" id="prd-hover"><a class="nav-link" href='<c:url value="/acc/main"/>'>ACC</a>
 						<div class="dropdown-content">
-							<a href="#">목걸이/팔찌/반지</a>
-							<a href="#">모자</a>
-							<a href="#">안경/선글라스</a>
-							<a href="#">양말</a>
-							<a href="#">벨트</a>
-							<a href="#">기타</a>
+							<a href='<c:url value="/acc/category?category=목걸이/팔찌/반지"/>'>목걸이/팔찌/반지</a>
+							<a href='<c:url value="/acc/category?category=모자"/>'>모자</a>
+							<a href='<c:url value="/acc/category?category=안경/선글라스"/>'>안경/선글라스</a> 
+							<a href='<c:url value="/acc/category?category=양말"/>'>양말</a>
+							<a href='<c:url value="/acc/category?category=벨트"/>'>벨트</a>
+							<a href='<c:url value="/acc/category?category=기타"/>'>기타</a>
 						</div>
 					</li>
-					<li class="nav-item" id="top_menu_space"><a class="nav-link" href="#">BEAUTY</a></li>
+					<li class="nav-item" id="top_menu_space"><a class="nav-link" href='<c:url value="/beauty/main"/>'>BEAUTY</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Q&A</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">REVIEW</a></li>
 				</ul>
