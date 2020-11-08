@@ -34,75 +34,24 @@
 	href='<c:url value="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"/>'
 	rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href='<c:url value="/resources/css/default.css"/>'
-	rel="stylesheet">
-<link href='<c:url value="/resources/css/question_answer.css"/>' rel="stylesheet">
+<link href='<c:url value="/resources/css/default.css"/>' rel="stylesheet">
+<link href='<c:url value="/resources/css/member.css"/>' rel="stylesheet">
 <link
 	href='<c:url value="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Single+Day&display=swap"/>'
 	rel="stylesheet">
 </head>
 <body>
 
-	<jsp:include page="../inc/top.jsp" />
+<jsp:include page="../inc/top.jsp"/>
 
 	<div id="main">
-		<div class="btns-group">
-			<h2 style="font-size: 20px;">Hyuni's shop 고객만족 센터 1833-9940</h2>
-			<h5 style="margin-bottom: 20px; font-size: 8px;">운영시간 10:00 - 05:00 / 점심시간 12:00 - 13:00 / 토, 일, 공휴일은 쉽니다.</h5>
-				<button type="button" class="btn btn-secondary">Secondary</button>
-				<button type="button" class="btn btn-secondary">Secondary</button>
-				<button type="button" class="btn btn-secondary">Secondary</button>
-				<button type="button" class="btn btn-secondary">Secondary</button>
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-light">Light</button>
-		</div>
+
+		
+
+		
+
 		
 		
-		<div class="main-question-board">
-			<table class="question-table">
-				<thead>
-					<tr>
-						<th scope="col" class="no">NO</th>
-						<th scope="col" class="category">CATEGORY</th>
-						<th scope="col" class="subeject">SUBJECT</th>
-						<th scope="col" class="writer">WRITER</th>
-						<th scope="col" class="date">DATE</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr id="first-row" class="row">
-						<th>1</th>
-						<td>Mark</td>
-						<td class="subject">Otto</td>
-						<td>@mdo</td>
-						<td>date</td>
-					</tr>
-					
-					<tr class="row">
-						<th>1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>date</td>
-					</tr>
-					
-					<tr class="row">
-						<th>1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>date</td>
-					</tr>
-					
-				</tbody>
-			</table>
-		</div>
 	</div>
 	<!-- 	main -->
 

@@ -3,7 +3,6 @@
 /* stylelint-disable selector-list-comma-newline-after */
 body {
 	height: 100%;
-		font-family: "Nanum Gothic", sans-serif;
 }
 .blog-header {
 	line-height: 1;
@@ -127,6 +126,14 @@ h1, h2, h3, h4, h5, h6 {
 /*
  * Custom
  */
+ 
+#main {
+	height: 100%;
+	margin-top: 120px;
+	font-family: "Nanum Gothic", sans-serif;
+}
+
+
 h2, h4, h5 {
 	text-align: center;
 	font-family: "Nanum Gothic", sans-serif;
