@@ -128,3 +128,38 @@
 	font-family: "돋움";
 	font-size: 12px;
 }
+
+.login-subject{
+	height: 200px;
+	padding-top: 110px;
+	text-align: center;
+}
+
+.login-form{
+	width: 95%;
+	height: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #d7d5d5;
+}
+
+.login-form h5{
+	margin-top: 30px;
+}
+
+.login-form-fieldset{
+	border: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	height: 300px;
+}
+
+.login-form-input{
+	display: block;
+	width: 170px;
+	height: 23px;
+	font-size: 10px;
+	background-color: white;
+	border-color: #d7d5d5;
+}

@@ -19,4 +19,10 @@ public class memberController {
 		
 		return "/member/join";
 	}
+	
+	@RequestMapping(value = "/member/login", method= RequestMethod.GET)
+	public String login() {
+		
+		return "/member/login";
+	}
 }

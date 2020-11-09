@@ -46,7 +46,18 @@
 
 	<div id="main">
 
+		<div class="login-subject">
+			<h4>LOGIN</h4>
+		</div>
 		
+		<form class="login-form">
+			<h5>회원로그인</h5>
+			<fieldset class="login-form-fieldset">
+				<input type="text" class="login-form-input">
+				<input type="text" class="login-form-input">
+				<input type="submit" value="로그인">
+			</fieldset>
+		</form>
 
 		
 
