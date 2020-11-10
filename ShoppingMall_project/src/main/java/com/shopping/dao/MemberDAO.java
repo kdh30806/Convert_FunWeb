@@ -1,5 +1,5 @@
 package com.shopping.dao;
 
-public interface memberDAO {
+public interface MemberDAO {
 
 }

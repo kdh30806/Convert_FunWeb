@@ -12,6 +12,11 @@
 	height: 23px;
 	display: inline-block;
 	margin-left: 5px;
+	text-decoration: none;
+}
+
+.postNum:hover{
+	text-decoration: none;
 }
 
 .join-form{

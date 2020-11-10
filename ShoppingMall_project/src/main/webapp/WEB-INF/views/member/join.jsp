@@ -39,59 +39,57 @@
 <link
 	href='<c:url value="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Single+Day&display=swap"/>'
 	rel="stylesheet">
+<script src='<c:url value="/resources/js/join.js"/>'></script>
+<script src='<c:url value="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"/>'></script>
+<span id="guide" style="color:#999;display:none"></span>
 </head>
 <body>
 
 <jsp:include page="../inc/top.jsp"/>
 
 	<div id="main">
-
-		<form class="join-form">
+		<form class="join-form" action='<c:url value="/member/join"/>' method="post">
 			 <table>
-			 	<tr><td class="join-form-category">아이디</td><td class="join-form-text"><input type="text" class="join-form-input"><span>아이디를 입력해 주세요. (영문소문자/숫자, 4~16자)</span></td></tr>
-				<tr><td class="join-form-category">비밀번호</td><td class="join-form-text"><input type="text" class="join-form-input"><span>(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)</span></td></tr>
-				<tr><td class="join-form-category">비밀번호 확인</td><td class="join-form-text"><input type="text" class="join-form-input"></td></tr>
-				<tr><td class="join-form-category">이름</td><td class="join-form-text"><input type="text" class="join-form-input"></td></tr>	
+			 	<tr><td class="join-form-category">아이디</td><td class="join-form-text"><input type="text" name="id" class="join-form-input"><span>아이디를 입력해 주세요. (영문소문자/숫자, 4~16자)</span></td></tr>
+				<tr><td class="join-form-category">비밀번호</td><td class="join-form-text"><input type="text" name="password" class="join-form-input"><span>(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)</span></td></tr>
+				<tr><td class="join-form-category">비밀번호 확인</td><td class="join-form-text"><input type="text" name="password2" class="join-form-input"></td></tr>
+				<tr><td class="join-form-category">이름</td><td class="join-form-text"><input type="text" name="name" class="join-form-input"></td></tr>	
 				<tr><td rowspan="3" class="join-form-category">주소</td>
 					<td rowspan="3" class="join-form-text">
-						<input type="text" class="join-form-input-addr-1"><a href="#" class="postNum">우편번호</a>
-						<input type="text" class="join-form-input-addr-2">
-						<input type="text" class="join-form-input-addr-3">
+						<input type="text" name="zipNo" id="sample4_postcode" class="join-form-input-addr-1"><a href="#" class="postNum" onclick="sample4_execDaumPostcode();">우편번호</a>
+						<input type="text" name="address1" id="sample4_roadAddress" class="join-form-input-addr-2">
+						<input type="text" name="address2" id="sample4_extraAddress" class="join-form-input-addr-3">
 					</td>
 				</tr>		
 				<tr></tr>
 				<tr></tr>
 				<tr><td class="join-form-category">전화번호</td><td class="join-form-text">
-					<select class="join-form-input-num">
+					<select class="join-form-input-num" name="mobile1">
 						<option selected="selected" value="010">010</option>
 						<option value="02">02</option>
 						<option value="051">051</option>
 						<option value="031">031</option>
 						<option value="032">032</option>			
-					</select>  -  <input type="text" class="join-form-input width60">  -  <input type="text" class="join-form-input width60"></td></tr>
-					<tr><td class="join-form-category">휴댚혼 번호</td><td class="join-form-text">
-					<select class="join-form-input-num">
+					</select>  -  <input type="text" name="mobile2" class="join-form-input width60">  -  <input type="text" name="mobile3" class="join-form-input width60"></td></tr>
+					<tr><td class="join-form-category">휴대폰 번호</td><td class="join-form-text">
+					<select class="join-form-input-num" name="phone1">
 						<option selected="selected" value="010">010</option>
 						<option value="011">011</option>
 						<option value="012">012</option>
 						<option value="013">013</option>
 						<option value="014">014</option>
-					</select>  -  <input type="text" class="join-form-input width60">  -  <input type="text" class="join-form-input width60"></td></tr>	
-				<tr><td class="join-form-category">이메일</td><td class="join-form-text"><input type="text" class="join-form-input"></td></tr>												 			 
+					</select>  -  <input type="text" name="phone2" class="join-form-input width60">  -  <input type="text" name="phone3" class="join-form-input width60"></td></tr>	
+				<tr><td class="join-form-category">이메일</td><td class="join-form-text"><input type="text" name="email" class="join-form-input"></td></tr>												 			 
 			 </table>
 			 <h5 style="text-align: left; margin-top: 30px;">추가정보</h5>
 			 
 			 <table>
 			 	<tr><td class="join-form-category">생년월일</td>
-			 		<td class="join-form-text"><input type="text" class="join-form-input width90"> 년 <input type="text" class="join-form-input width80">  월 <input type="text" class="join-form-input width80"> 일</td></tr>	
+			 		<td class="join-form-text"><input type="text" name="year" class="join-form-input width90"> 년 <input type="text" name="month" class="join-form-input width80">  월 <input type="text" name="day" class="join-form-input width80"> 일</td></tr>	
 			 </table>
 			 
-			 <input type="submit" class="btn btn-dark btn-custom" value="회원가입"><input type="submit" class="btn btn-light btn-custom" value="회원가입 취소">
+			 <input type="submit" class="btn btn-dark btn-custom" value="회원가입"><input type="button" class="btn btn-light btn-custom" value="회원가입 취소">
 		</form>
-
-		
-
-		
 		
 	</div>
 	<!-- 	main -->

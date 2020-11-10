@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Repository
-public class memberDAOImp implements memberDAO{
+public class MemberDAOImp implements MemberDAO{
 	
 	@Inject
 	private SqlSession sqlSession;

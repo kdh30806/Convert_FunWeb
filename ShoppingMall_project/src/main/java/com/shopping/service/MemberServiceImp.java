@@ -5,11 +5,11 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import com.shopping.dao.memberDAO;
+import com.shopping.dao.MemberDAO;
 
 @Repository
-public class memberServiceImp implements memberService{
+public class MemberServiceImp implements MemberService{
 	
 	@Inject
-	private memberDAO memberDAO;
+	private MemberDAO MemberDAO;
 }

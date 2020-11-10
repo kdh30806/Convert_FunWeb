@@ -1,5 +1,5 @@
 package com.shopping.service;
 
-public interface memberService {
+public interface MemberService {
 
 }
