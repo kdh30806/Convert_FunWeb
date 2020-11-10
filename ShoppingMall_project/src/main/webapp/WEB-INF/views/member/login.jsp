@@ -53,10 +53,27 @@
 		<form class="login-form">
 			<h5>회원로그인</h5>
 			<fieldset class="login-form-fieldset">
-				<input type="text" class="login-form-input">
-				<input type="text" class="login-form-input">
-				<input type="submit" value="로그인">
+					<input type="text" class="login-form-input-1">
+					<input type="text" class="login-form-input-2">
+					<input type="submit" value="로그인" class="login-btn">
+					
+					<ul class="login-find">
+						<li>▶아이디 찾기</li>
+						<li>▶비밀번호 찾기</li>
+					</ul>
+					
+					<ul class="login-sns">
+						<li><img src='<c:url value="/resources/images/btn_naver_login.gif"/>'></li>
+						<li style="margin: 0 20px;"><img src='<c:url value="/resources/images/btn_kakao_login.gif"/>'></li>
+						<li><img src='<c:url value="/resources/images/btn_apple_login.gif"/>'></li>
+					</ul>
+					<hr>
+					
+					<p>회원가입 하시면 다양하고 특별한<br>
+					       혜택이 준비 되어 있습니다. <a href="#"><img src='<c:url value="/resources/images/btn_join.gif"/>'></a></p>
 			</fieldset>
+			
+			
 		</form>
 
 		

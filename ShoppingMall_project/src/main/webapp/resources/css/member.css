@@ -148,18 +148,84 @@
 }
 
 .login-form-fieldset{
-	border: 1px solid;
 	margin-left: auto;
 	margin-right: auto;
 	width: 450px;
 	height: 300px;
 }
 
-.login-form-input{
-	display: block;
-	width: 170px;
-	height: 23px;
+
+
+.login-form-input-1{
+	display: inline;
+	margin-left: 40px;
+	width: 250px;
+	height: 35px;
 	font-size: 10px;
 	background-color: white;
 	border-color: #d7d5d5;
+	position: absolute;
+	}
+
+.login-form-input-2{
+	display: inline;
+	margin-left: 40px;
+	width: 250px;
+	height: 35px;
+	font-size: 10px;
+	background-color: white;
+	border-color: #d7d5d5;
+	margin-top: 10px;
 }
+
+.login-btn{
+	position: inherit;
+	vertical-align: bottom;
+	width: 100px;
+	height: 80px;
+	background-color: #2e2e2e;
+	color: white;
+	font-weight: bold;
+	display: inline;
+}
+
+.login-find{
+	margin-top: 20px;
+	list-style: none;
+}
+
+.login-find li{
+	display: inline-block;
+	font-size: 10px;
+}
+
+.login-sns{
+	margin-left: 100px;
+	list-style: none;
+}
+
+.login-sns li{
+	display: inline-block;
+	font-size: 10px;
+}
+
+.login-form p{
+	font-size: 10px;
+	font-family: "돋움";
+	margin-left: 40px;
+}
+
+.login-form p a{
+	margin-left: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+
