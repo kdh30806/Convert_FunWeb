@@ -3,23 +3,53 @@ package com.shopping.domain;
 import java.sql.Timestamp;
 
 public class MemberBean {
+	private int mem_num;
 	private String id;
 	private String password;
 	private String name;
 	private String zipNo;
 	private String address1;
 	private String address2;
+	private String mobile;
 	private String mobile1;
 	private String mobile2;
 	private String mobile3;
+	private String phone;
 	private String phone1;
 	private String phone2;
 	private String phone3;
 	private String email;
+	private String birth;
 	private String year;
 	private String month;
 	private String day;
 	private Timestamp date;
+	
+	
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public int getMem_num() {
+		return mem_num;
+	}
+	public void setMem_num(int mem_num) {
+		this.mem_num = mem_num;
+	}
 	public String getId() {
 		return id;
 	}

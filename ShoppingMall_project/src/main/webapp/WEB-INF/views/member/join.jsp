@@ -39,6 +39,7 @@
 <link
 	href='<c:url value="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Single+Day&display=swap"/>'
 	rel="stylesheet">
+<script src='<c:url value="/resources/script/jquery-3.5.1.js"/>'></script>
 <script src='<c:url value="/resources/js/join.js"/>'></script>
 <script src='<c:url value="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"/>'></script>
 <span id="guide" style="color:#999;display:none"></span>
@@ -59,6 +60,7 @@
 						<input type="text" name="zipNo" id="sample4_postcode" class="join-form-input-addr-1"><a href="#" class="postNum" onclick="sample4_execDaumPostcode();">우편번호</a>
 						<input type="text" name="address1" id="sample4_roadAddress" class="join-form-input-addr-2">
 						<input type="text" name="address2" id="sample4_extraAddress" class="join-form-input-addr-3">
+						<input type="hidden" id="sample4_jibunAddress" style="width:40%" name="address2" placeholder="상세주소1">
 					</td>
 				</tr>		
 				<tr></tr>

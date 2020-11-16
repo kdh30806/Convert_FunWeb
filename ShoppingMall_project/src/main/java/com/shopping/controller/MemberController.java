@@ -13,7 +13,7 @@ import com.shopping.service.MemberService;
 public class MemberController {
 	
 	@Inject
-	private MemberService MemberService;
+	private MemberService memberService;
 	
 	@RequestMapping(value = "/member/join", method= RequestMethod.GET)
 	public String join() {
@@ -22,13 +22,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/member/join", method= RequestMethod.POST)
-	public String joinPost(MemberBean mb) {
-		
-		System.out.println("joinPost");
-		
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println(mb.getMobile1());
-		
+	public String joinPost(MemberBean mb) {	
+		memberService.insertMember(mb);
 		return "/main";
 	}
 	
