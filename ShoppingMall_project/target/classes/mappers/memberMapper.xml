@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.shopping.mappers.memberMapper">
+
+	<insert id="insertMember">
+		insert into
+		member(mem_num,id,password,name,zipNo,address1,address2,mobile,phone,birth,date)
+		values(#{mem_num},#{id},#{password},#{name},#{zipNo},#{address1},#{address2},#{mobile},#{phone},#{birth},now() )
+	</insert>
+	<select id="getMaxNum" resultType="java.lang.Integer">
+		select max(mem_num) from member;
+	</select>
+</mapper> 
