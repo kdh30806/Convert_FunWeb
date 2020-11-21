@@ -32,4 +32,10 @@ public class MemberController {
 		
 		return "/member/login";
 	}
+	
+	@RequestMapping(value = "/member/login", method= RequestMethod.POST)
+	public String loginPost() {
+		
+		return "/member/login";
+	}
 }

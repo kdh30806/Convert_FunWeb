@@ -50,11 +50,11 @@
 			<h4>LOGIN</h4>
 		</div>
 		
-		<form class="login-form">
+		<form class="login-form" action='<c:url value="/member/login"/>'  method="post">
 			<h5>회원로그인</h5>
 			<fieldset class="login-form-fieldset">
-					<input type="text" class="login-form-input-1">
-					<input type="text" class="login-form-input-2">
+					<input type="text" class="login-form-input-1" name="id">
+					<input type="text" class="login-form-input-2" name="password">
 					<input type="submit" value="로그인" class="login-btn">
 					
 					<ul class="login-find">
