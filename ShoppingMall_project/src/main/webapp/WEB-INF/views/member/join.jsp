@@ -40,72 +40,24 @@
 	href='<c:url value="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Single+Day&display=swap"/>'
 	rel="stylesheet">
 <script src='<c:url value="/resources/script/jquery-3.5.1.js"/>'></script>
-<script src='<c:url value="/resources/js/join.js"/>'></script>
 <script src='<c:url value="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"/>'></script>
 <span id="guide" style="color:#999;display:none"></span>
-</head>
+<script src='<c:url value="/resources/js/join.js"/>'></script>
+<script src='<c:url value="/resources/js/join2.js"/>'></script>
+<script src='<c:url value="/resources/js/join3.js"/>'></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	
-	$('#idSpan').html("아이디를 입력해 주세요. (영문소문자/숫자, 4~16자)");
-	$('#passSpan').html("영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자을 입력해야 합니다.");	
-
-	$('#id').keyup(function(){
-		var id= document.getElementById('id').value;
-		var checkCha= id.search(/[!@#$%^&*()]/g);	
-		var checkUpper = id.search(/[A-Z]/g);
-		
-		if(!(checkCha == -1)){
-			$('#idSpan').html("특수 문자는 사용할 수 없습니다.");
-			return false;
-		}
-		if(!(checkUpper == -1)){
-			$('#idSpan').html("영문 대문자는 사용할 수 없습니다.");
-			return false;
-		}
-		if(!/^[a-z0-9]{4,16}$/.test(id)){
-			$('#idSpan').html("아이디는 4자~16자를 입력 해야 합니다.");
-			return false;
-		}
-		if(/^[a-z0-9]{4,16}$/.test(id)){
-			$('#idSpan').html("완벽한 아이디입니다.");
-			return false;
-		}
-		
-	});
-	$('#password').keyup(function(){
-		var password = document.getElementById('password').value;
-		var checkNumber = password.search(/[0-9]/g);
-		var checkEnglish = password.search(/[a-zA-Z]/g);
-		var checkCha= password.search(/[!@#$%^&*()]/g);	
-		
-	 		if(checkNumber+checkEnglish+checkCha < 2){
-	 			$('#passSpan').html("영문 대소문자/숫자/특수문자 중 2가지 이상 조합이여야 합니다");
-	 			return false;
-	 		}
-	 		if(!/^[a-zA-Z0-9]{8,16}$/.test(password)){
-	 			$('#passSpan').html("비밀번호는 8자~16자을 입력해야 합니다.");
-	 			return false;
-	 		}
-	 		if(/^[a-zA-Z0-9]{8,16}$/.test(password)){
-	 			$('#passSpan').html("완벽한 비밀번호 입니다.");
-	 			return false;
-	 		}
-	});
-});
-
 </script>
+</head>
 <body>
-
 <jsp:include page="../inc/top.jsp"/>
 
 	<div id="main">
-		<form class="join-form" action='<c:url value="/member/join"/>' method="post">
+		<form class="join-form" id="join" action='<c:url value="/member/join"/>' method="post">
 			 <table>
 			 	<tr><td class="join-form-category">아이디</td><td class="join-form-text"><input type="text" id="id" name="id" class="join-form-input"><span id="idSpan"></span></td></tr>
 				<tr><td class="join-form-category">비밀번호</td><td class="join-form-text"><input type="text" id="password" name="password" class="join-form-input"><span id="passSpan"></span></td></tr>
-				<tr><td class="join-form-category">비밀번호 확인</td><td class="join-form-text"><input type="text" name="password2" class="join-form-input"></td></tr>
-				<tr><td class="join-form-category">이름</td><td class="join-form-text"><input type="text" name="name" class="join-form-input"></td></tr>	
+				<tr><td class="join-form-category">비밀번호 확인</td><td class="join-form-text"><input type="text" id="password2" name="password2" class="join-form-input"></td></tr>
+				<tr><td class="join-form-category">이름</td><td class="join-form-text"><input type="text" id="name" name="name" class="join-form-input"></td></tr>	
 				<tr><td rowspan="3" class="join-form-category">주소</td>
 					<td rowspan="3" class="join-form-text">
 						<input type="text" name="zipNo" id="sample4_postcode" class="join-form-input-addr-1"><a href="#" class="postNum" onclick="sample4_execDaumPostcode();">우편번호</a>
@@ -123,7 +75,7 @@ $(document).ready(function(){
 						<option value="051">051</option>
 						<option value="031">031</option>
 						<option value="032">032</option>			
-					</select>  -  <input type="text" name="mobile2" class="join-form-input width60">  -  <input type="text" name="mobile3" class="join-form-input width60"></td></tr>
+					</select>  -  <input type="text" id="mobile2" name="mobile2" class="join-form-input width60">  -  <input type="text" id="mobile3" name="mobile3" class="join-form-input width60"></td></tr>
 					<tr><td class="join-form-category">휴대폰 번호</td><td class="join-form-text">
 					<select class="join-form-input-num" name="phone1">
 						<option selected="selected" value="010">010</option>
@@ -131,7 +83,7 @@ $(document).ready(function(){
 						<option value="012">012</option>
 						<option value="013">013</option>
 						<option value="014">014</option>
-					</select>  -  <input type="text" name="phone2" class="join-form-input width60">  -  <input type="text" name="phone3" class="join-form-input width60"></td></tr>	
+					</select>  -  <input type="text" id="phone2" name="phone2" class="join-form-input width60">  -  <input type="text" id="phone3" name="phone3" class="join-form-input width60"></td></tr>	
 				<tr><td class="join-form-category">이메일</td><td class="join-form-text"><input type="text" name="email" class="join-form-input"></td></tr>												 			 
 			 </table>
 			 <h5 style="text-align: left; margin-top: 30px;">추가정보</h5>
@@ -141,7 +93,7 @@ $(document).ready(function(){
 			 		<td class="join-form-text"><input type="text" name="year" class="join-form-input width90"> 년 <input type="text" name="month" class="join-form-input width80">  월 <input type="text" name="day" class="join-form-input width80"> 일</td></tr>	
 			 </table>
 			 
-			 <input type="submit" class="btn btn-dark btn-custom" value="회원가입"><input type="button" class="btn btn-light btn-custom" value="회원가입 취소">
+			 <input type="submit" id="join" class="btn btn-dark btn-custom" value="회원가입"><input type="button" class="btn btn-light btn-custom" value="회원가입 취소">
 		</form>
 		
 	</div>
