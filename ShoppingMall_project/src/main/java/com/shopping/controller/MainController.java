@@ -143,6 +143,6 @@ public class MainController {
 	@RequestMapping(value = "/question_answer/main", method= RequestMethod.GET)
 	public String question_answer_main() {
 		
-		return "/q&a/main";
+		return "/question/main";
 	}
 }

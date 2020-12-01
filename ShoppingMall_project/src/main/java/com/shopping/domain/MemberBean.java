@@ -24,8 +24,23 @@ public class MemberBean {
 	private String month;
 	private String day;
 	private Timestamp date;
+	private String Auth;
+	private int Enable;
 	
 	
+	
+	public String getAuth() {
+		return Auth;
+	}
+	public void setAuth(String auth) {
+		Auth = auth;
+	}
+	public int getEnable() {
+		return Enable;
+	}
+	public void setEnable(int enable) {
+		Enable = enable;
+	}
 	public String getMobile() {
 		return mobile;
 	}

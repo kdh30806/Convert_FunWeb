@@ -53,7 +53,8 @@
 		<form class="login-form" action='<c:url value="/member/login"/>'  method="post">
 			<h5>회원로그인</h5>
 			<fieldset class="login-form-fieldset">
-					<input type="text" class="login-form-input-1" name="id">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+					<input type="text" class="login-form-input-1" name="username">
 					<input type="text" class="login-form-input-2" name="password">
 					<input type="submit" value="로그인" class="login-btn">
 					
