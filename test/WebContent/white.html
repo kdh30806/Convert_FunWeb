@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="white.css" rel="stylesheet">
+<link href="main2.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -50,7 +51,7 @@
 						<tr><td>소 형 주</td><td>1,727.18</td><td><span class="updown">▼</span>5.70</td><td>-0.33</td></tr>
 						<tr><td>음 식 료 업</td><td>4,391.35</td><td><span class="updown">▼</span>31.68</td><td>-0.72</td></tr>
 						<tr><td>섬 유 의 복</td><td>311.94</td><td><span class="updown">▼</span>1.39</td><td>-0.44</td></tr>
-						<tr><td>종 이 목 재</td><td>326.45</td><td><span class="updown">▼</span>1.54</td><td>-0.47</td></tr>
+						<tr><td id="highlight">종 이 목 재</td><td>326.45</td><td><span class="updown">▼</span>1.54</td><td>-0.47</td></tr>
 						<tr><td>화 학</td><td>3,862.02</td><td><span class="updown">▼</span>46.15</td><td>-1.18</td></tr>
 						<tr><td>의 약 품</td><td>4,537.72</td><td><span class="updown">▼</span>41.32</td><td>-0.90</td></tr>
 						<tr><td>비금속 광물</td><td>1,254.17</td><td><span class="updown">▲</span>2.96</td><td>0.24</td></tr>
@@ -113,7 +114,7 @@
 						<option value="005932">005932</option>
 						<option value="005933">005933</option>
 					</select>
-					<img src="돋보기_흰색.png">
+					<input type="button" class="search-image">
 					<input type="text" value="삼성전자" class="search-result">
 				</div>
 				<span class="text">
@@ -122,7 +123,6 @@
 				<input type="button" value="참고" class="search-btn1">
 				<input type="button" value="조회" class="search-btn2">
 			</div>
-			<div class="clear"></div>
 			
 			<div class="left-div-2-tgroup1">
 				<table class="left-div-2-table1">
@@ -148,79 +148,90 @@
 					</tbody>	
 				</table>
 			</div>		
-			<div class="left-btn">
-					<input type="button" value="처음으로"><input type="button" value="다음">
+			<div class="left-btngroup">
+				<input type="button" value="처음으로" class="left-btn1">
+				<input type="button" value="다음" class="left-btn2">
 			</div>
-			<div class="clear"></div>
-			<table class="left-table-4">
-				<thead>
-					<tr>
-						<th>매도상위</th>
-						<th>매도수량</th>
-						<th>매수상위</th>
-						<th>매수수량</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr><th>CLSA</th><td>147,262<th>모간스텐리</th><td>123,998</td></tr>
-					<tr><th>우리투자</th><td>79,476</td><th>신한투자</th><td>58,093</td></tr>
-					<tr><th>도이지</th><td>69,867</td><th>골드만삭스</th><td>53,946</td></tr>
-					<tr><th>삼성증권</th><td>55,457</td><th>삼성증권</th><td>48,427</td></tr>
-					<tr><th>키움증권</th><td>45,899</td><th>JP모간</th><td>44,744</td></tr>
-					<tr><th>외국계합</th><td>228,934</td><th>외국계합</th><td>264,481</td></tr>
-				</tbody>
-			</table>
-			<p>회사명 : CLSA</p>
-			<table class="left-table-5">
-				<thead>
-					<tr>
-						<th>일자</th>
-						<th>매도</th>
-						<th>매수</th>
-						<th>순매수</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr><td>2014/11/26</td><td>4,288<td>3,353</td><td>-935</td></tr>
-					<tr><td>2014/11/25</td><td>3,161</td><td>15,135</td><td>11,974</td></tr>
-					<tr><td>2014/11/24</td><td>35,637</td><td>9,789</td><td>-25,848</td></tr>
-					<tr><td>2014/11/21</td><td>374</td><td>2,127</td><td>1,753</td></tr>
-					<tr><td>2014/11/20</td><td>41,884</td><td>37,889</td><td>-3,995</td></tr>
-				</tbody>
-			</table>
+			<div class="left-div-2-tgroup2">
+				<table class="left-div-2-table2">
+					<thead>
+						<tr>
+							<th>매도상위</th>
+							<th>매도수량</th>
+							<th>매수상위</th>
+							<th>매수수량</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><th>CLSA</th><td>147,262<th>모간스텐리</th><td>123,998</td></tr>
+						<tr><th>우리투자</th><td>79,476</td><th>신한투자</th><td>58,093</td></tr>
+						<tr><th>도이지</th><td>69,867</td><th>골드만삭스</th><td>53,946</td></tr>
+						<tr><th>삼성증권</th><td>55,457</td><th>삼성증권</th><td>48,427</td></tr>
+						<tr><th>키움증권</th><td>45,899</td><th>JP모간</th><td>44,744</td></tr>
+						<tr><th>외국계합</th><td>228,934</td><th>외국계합</th><td>264,481</td></tr>
+					</tbody>
+				</table>
+				<div class="left-div-2-tgroup2-1">
+					<p>회사명 : CLSA</p>
+					<table class="left-div-2-table3">
+						<thead>
+							<tr>
+								<th>일자</th>
+								<th>매도</th>
+								<th>매수</th>
+								<th>순매수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>2014/11/26</td><td>4,288<td>3,353</td><td>-935</td></tr>
+							<tr><td>2014/11/25</td><td>3,161</td><td>15,135</td><td>11,974</td></tr>
+							<tr><td>2014/11/24</td><td>35,637</td><td>9,789</td><td>-25,848</td></tr>
+							<tr><td>2014/11/21</td><td>374</td><td>2,127</td><td>1,753</td></tr>
+							<tr><td>2014/11/20</td><td>41,884</td><td>37,889</td><td>-3,995</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 
 	<div class="right-div">
 		<div class="right-div-1">
-			<button>현재가</button>
-			<button>체결/거래원</button>
-			<button>일별</button>
-			<button>시간별</button>
-			<button>상세1</button>
-			<button>상세2</button>
-			<div class="clear"></div>
-			<div class="section">
-				<span>
-					<select name="number" class="number">
+			<div class="right-div-1-topmenu">
+				<button>현재가</button>
+				<button>체결/거래원</button>
+				<button>일별</button>
+				<button>시간별</button>
+				<button>상세1</button>
+				<button>상세2</button>
+			</div>
+			<div class="left-div-1-menubar">
+				<div class="search2">
+					<select name="number" class="search-select">
 						<option value="005930">005930</option>
 						<option value="005931">005931</option>
 						<option value="005932">005932</option>
 						<option value="005933">005933</option>
 					</select>
-					<img src="돋보기_흰색.png">
-					<input type="text" value="삼성전자" class="search">
-					<input type="button" value="10호가" class="btn3">
-				</span>
-			</div>		
-			<table class="right-table-1">
-				<tbody>
-					<tr><td><div class="bullet01"><img src="bullet01.png"></div>현재가</td><td>1,264,000</td><td><span class="updown">▲</span>63,000</td><td>5.25%</td><td>844,358</td></tr>
-				</tbody>
-			</table>
-			<table class="right-table-2">
+					<input type="button" class="search-image">
+					<input type="text" value="삼성전자" class="search-result">
+					<input type="button" value="10호가" class="search-btn3">
+				</div>
+			</div>
+			
+			<div class="right-div-1-tgroup1">		
+				<table class="right-div-1-table1">
+					<tbody>
+						<tr><td><div class="bullet01"><img src="bullet01.png"></div>현재가</td><td>1,264,000</td><td><span class="updown">▲</span>63,000</td><td>5.25%</td><td>844,358</td></tr>
+					</tbody>
+				</table>	
+			</div>
+			
+			<div class="right-div-1-tgroup2">
+				<table class="right-div-1-table2">
 				<thead>
-					<tr><th>대비</th><th>매도잔량</th><th>15:30:01</th><th>매수잔량</th><th>대비</th></tr>
+					<tr class="head"><th>대비</th><th>매도잔량</th><th>15:30:01</th><th>매수잔량</th><th>대비</th></tr>
 				</thead>
 				<tbody>
 					<tr><td></td><td>293</td><td>1,269,000</td><td colspan="2" rowspan="5">
@@ -257,54 +268,79 @@
 					<tr><td></td><td></td><th>시간외</th><td>485</td><td></td></tr>
 				</tbody>
 			</table>	
-		</div> 
-		
+			</div>
+			
+		</div> 	
 		<div class="right-div-2">
-			<button>매수</button>
-			<button>매도</button>
-			<button>정정</button>
-			<button>취소</button>
-			<div class="clear"></div>
+			<div class="right-div-2-topmenu">
+				<button>매수</button>
+				<button>매도</button>
+				<button>정정</button>
+				<button>취소</button>
+			</div>
+			<div class="orderform-div">
 			<form class="orderform">
-				<div><label>계좌번호</label>
+				<div>
+					<label>계좌번호</label>
 					<select name="account" class="account">
 						<option value="1">34083141-11[위탁]</option>
 						<option value="2">34083142-11[위탁]</option>
-					</select><input type="text" value="평다진" class="search"></div>
-				<div><label>비밀번호</label><input type="text" class="password"></div>
-				<div><label>종목코드</label><select name="number" class="number">
+					</select>
+					<input type="text" value="평다진" class="search">
+				</div>
+				<div>
+					<label>비밀번호</label>
+					<input type="text" class="password">
+				</div>
+				<div>
+					<label>종목코드</label><select name="number" class="number">
 						<option value="005930">005930</option>
 						<option value="005931">005931</option>
-					</select><img src="돋보기_흰색.png" class="search-img"><input type="text" value="삼성전자" class="search">
+					</select>
+					<input type="button" class="search-image">
+					<input type="text" value="삼성전자" class="search">
 				</div>
-				<div><label>매매구분</label>
+				<div>
+					<label>매매구분</label>
 					<select name="account" class="account">
 						<option value="1">지정가</option>
 						<option value="2">상한가</option>
 					</select>
 				</div>
-				<div><label>매수수량</label>
-					<a href="#" class="minus"><img src="minus.png" class="minus-img"></a><input type="text" class="count"><a href="#" class="plus"><img src="plus.png" class="plus-img"></a>				
-					<input type="button" value="주" class="count-btn1"><input type="button" value="현금" class="count-btn2"><input type="button" value="최대" class="count-btn2">
+				<div>
+					<label>매수수량 </label><a href="#" class="minus"><img src="minus.png" class="minus-img"></a><input type="text" class="count"><a href="#" class="plus"><img src="plus.png" class="plus-img"></a><input type="button" value="주" class="count-btn1"><input type="button" value="현금" class="count-btn2"><input type="button" value="최대" class="count-btn2">
 				</div>
-				<div><label>매수단가</label><a href="#" class="minus-3px"><img src="minus.png" class="minus-img"></a><input type="text" value="1,264,000" class="count"><a href="#" class="plus"><img src="plus.png" class="plus-img"></a> 원</div>
-				<div><label>신용구분</label><input type="checkbox" value="c">신용매수
+				<div>
+					<label>매수단가</label><a href="#" class="minus"><img src="minus.png" class="minus-img"></a><input type="text" value="1,264,000" class="count"><a href="#" class="plus"><img src="plus.png" class="plus-img"></a> 원
+					</div>
+				<div>
+					<label>신용구분</label><input type="checkbox" value="c">신용매수
 					<select name="c" class="account">
 						<option value="1">신용융자</option>
 					</select>
 				</div>
 				<div>
-				<label></label><input type="text" value="삼성전자" class="ordernumber1">
+					<label></label><input type="text" value="삼성전자" class="ordernumber1">
 				</div>
 				<div>
-				<label>주문번호</label><input type="text" value="삼성전자" class="ordernumber2">
+					<label>주문번호</label><input type="text" value="삼성전자" class="ordernumber2">
 				</div>
 				<div>
-				<input type="button" value="시장가 주문" class="orderform-btn1"><input type="button" value="매수" class="orderform-btn2">
+					<input type="button" value="시장가 주문" class="orderform-btn1">
+					<input type="button" value="매수" class="orderform-btn2">
 				</div>
 			</form>
+			</div>
+			
 		</div>
 	</div>
+</div>
+<div class="main2">
+	<div class="a"><label>id</label><input type="text" class="input1"></div>
+	<div class="a"><label>노드명</label><input type="text" class="input2"></div>
+	<div class="a"><label>속성명</label><input type="text" class="input2"></div>
+	<div class="a"><label>속성값</label><input type="text" class="input2"></div>
+	<div class="b"><input type="button" value="검색(JavaScript)" class="input3"><input type="button" value="검색(Java)" class="input3"><input type="button" value="검색(JQuery)" class="input3"></div>
 </div>
 
 </body>

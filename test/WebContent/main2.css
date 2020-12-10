@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.main2{
+	width: 700px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	padding: 100px;
+}
+
+.a{
+	width: auto;
+	height: auto;
+	display: block;
+	margin-top: 20px;
+}
+
+.main2 label{
+	font-size: 20px;
+}
+
+.input1{
+	margin-left: 92px;
+	width: 250px;
+	height: 30px;
+	display: black;
+}
+
+.input2{
+	margin-left: 50px;
+	width: 250px;
+	height: 30px;
+	display: black;
+}
+
+.b{
+	width: auto;
+	height: auto;
+	display: block;
+	margin-top: 40px;
+	padding-left: 70px;
+}
+
+.input3{
+	margin-right: 5px;
+	height: 30px;
+}
