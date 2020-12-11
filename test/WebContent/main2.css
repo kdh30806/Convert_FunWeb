@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
-.main2{
+#main2{
 	width: 700px;
 	height: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid black;
 	padding: 100px;
+	display: block;
+	clear: both;
 }
 
 .a{
@@ -16,7 +18,7 @@
 	margin-top: 20px;
 }
 
-.main2 label{
+#main2 label{
 	font-size: 20px;
 }
 
@@ -45,4 +47,9 @@
 .input3{
 	margin-right: 5px;
 	height: 30px;
+}
+
+.c{
+	display: block;
+	margin-top: 10px;
 }

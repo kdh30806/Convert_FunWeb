@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<link href="white.css" rel="stylesheet"/>
+<link href="main2.css" rel="stylesheet"/>
+<script type="text/javascript" xml:space="preserve">
+//<![CDATA[
+	function search1() {
+		
+		var count = 0;
+		var temp = 0;
+		var id = document.getElementById('id').value;
+		var node_name = document.getElementById('node').value;
+		var att_name = document.getElementById('att_name').value;
+		var att_value = document.getElementById('att_value').value;
+		var id_position = document.getElementById(id);
+		
+		console.log("찾은 ID의 태그 : " + id_position);		
+		console.log("찾은 NODE의 개수 : " + document.getElementsByName(node_name).length);
+			
+		if(isEmpty(id)){
+			for(var i = 0 ; i < document.getElementsByName(node_name).length ; i++){ //name으로 찾은 노드의 갯수만큼 반복
+				if(document.getElementsByName(node_name)[i].value != null){ // 널이 아니면
+						if(!isEmpty(att_name)){ // att_name 이 비어있지 않으면
+							if(!isEmpty(att_value)){ //att_value 가 비어있지 않으면
+								if(document.getElementsByName(node_name)[i].getAttribute(att_name) == att_value){ // 속성값이 일치 한다면
+									count++;
+								}
+							}else{
+								if(document.getElementsByName(node_name)[i].getAttribute(att_name) != null){
+									count++;
+								}						
+							}
+						}else{
+							count = document.getElementsByName(node_name).length;
+						}
+					}
+			}			
+		}else{
+			count = 1;
+		}		
+		
+		console.log(count);
+		document.getElementById("c").textContent = "총   " + count + "개입니다.";
+		}
+	function isEmpty(value) {
+		if(typeof value == "undefined" || value == null || value == ""){
+			return true;
+		}else{
+			return false;
+		}
+	}
+//]]>
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+<div id="main">
+	<div class="left-div">
+		<div class="left-div-1">
+			<div class="left-div-1-topmenu">
+					<button type="submit">관심</button>
+					<button type="submit">뉴스</button>
+					<button type="submit">외국계</button>
+					<button type="submit">기관계</button>
+					<button type="submit">거래원</button>
+					<button type="submit">지수</button>
+					<button type="submit">등락</button>
+					<button type="submit">급변</button>
+					<button type="submit">테마</button>
+			</div>
+			<div class="left-div-1-menubar">
+				<h5>시장구분</h5>
+				<div class="radio-group">
+					<input id="test" name="section" type="radio" value="KOSPI"/>KOSPI
+					<input id="test2" name="section" type="radio" value="KOSDAQ"/>KOSDAQ
+					<input name="section" type="radio" value="KOSPI200"/>KOSPI200
+					<input name="section" type="radio" value="KOSPI100"/>KOSPI100
+					<input name="section" type="radio" value="KRX100"/>KRX100
+					<input name="section" type="radio" value="KOSTAR"/>KOSTAR
+					<input name="section" type="radio" value="섹터지수"/>섹터지수
+				</div>
+				<input class="menubar-btn" type="button" value="조회"/>
+			</div>
+			<div class="left-div-1-tgroup">		
+				<table class="left-table-1">
+					<thead>
+						<tr>
+							<th colspan="1" rowspan="1">업종</th>
+							<th colspan="1" rowspan="1">지수</th>
+							<th colspan="1" rowspan="1">전일비</th>
+							<th colspan="1" rowspan="1">등락률</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td colspan="1" rowspan="1">KOSPI(종합)</td><td colspan="1" rowspan="1">1,982.09</td><td colspan="1" rowspan="1"><span class="updown">▲</span>1.25</td><td colspan="1" rowspan="1">0.06</td></tr>
+						<tr><td colspan="1" rowspan="1">대 형 주 </td><td colspan="1" rowspan="1">1,925.53</td><td colspan="1" rowspan="1"><span class="updown">▲</span>10.55</td><td colspan="1" rowspan="1">0.55</td></tr>
+						<tr><td colspan="1" rowspan="1">중 형 주</td><td colspan="1" rowspan="1">2,254.66</td><td colspan="1" rowspan="1"><span class="updown">▼</span>21.85</td><td colspan="1" rowspan="1">-0.96</td></tr>
+						<tr><td colspan="1" rowspan="1">소 형 주</td><td colspan="1" rowspan="1">1,727.18</td><td colspan="1" rowspan="1"><span class="updown">▼</span>5.70</td><td colspan="1" rowspan="1">-0.33</td></tr>
+						<tr><td colspan="1" rowspan="1">음 식 료 업</td><td colspan="1" rowspan="1">4,391.35</td><td colspan="1" rowspan="1"><span class="updown">▼</span>31.68</td><td colspan="1" rowspan="1">-0.72</td></tr>
+						<tr><td colspan="1" rowspan="1">섬 유 의 복</td><td colspan="1" rowspan="1">311.94</td><td colspan="1" rowspan="1"><span class="updown">▼</span>1.39</td><td colspan="1" rowspan="1">-0.44</td></tr>
+						<tr><td colspan="1" id="highlight" rowspan="1">종 이 목 재</td><td colspan="1" rowspan="1">326.45</td><td colspan="1" rowspan="1"><span class="updown">▼</span>1.54</td><td colspan="1" rowspan="1">-0.47</td></tr>
+						<tr><td colspan="1" rowspan="1">화 학</td><td colspan="1" rowspan="1">3,862.02</td><td colspan="1" rowspan="1"><span class="updown">▼</span>46.15</td><td colspan="1" rowspan="1">-1.18</td></tr>
+						<tr><td colspan="1" rowspan="1">의 약 품</td><td colspan="1" rowspan="1">4,537.72</td><td colspan="1" rowspan="1"><span class="updown">▼</span>41.32</td><td colspan="1" rowspan="1">-0.90</td></tr>
+						<tr><td colspan="1" rowspan="1">비금속 광물</td><td colspan="1" rowspan="1">1,254.17</td><td colspan="1" rowspan="1"><span class="updown">▲</span>2.96</td><td colspan="1" rowspan="1">0.24</td></tr>
+						<tr><td colspan="1" rowspan="1">철 강 금 속</td><td colspan="1" rowspan="1">5,052.16</td><td colspan="1" rowspan="1"><span class="updown">▼</span>86.24</td><td colspan="1" rowspan="1">-1.68</td></tr>
+						<tr><td colspan="1" rowspan="1">기 계</td><td colspan="1" rowspan="1">829.41</td><td colspan="1" rowspan="1"><span class="updown">▼</span>10.00</td><td colspan="1" rowspan="1">-1.19</td></tr>
+					</tbody>	
+				</table>
+				
+				<table class="left-table-2">
+					<thead>
+						<tr>
+							<th colspan="1" rowspan="1">종목명</th>
+							<th colspan="1" rowspan="1">현재가</th>
+							<th colspan="1" rowspan="1">전일비</th>
+							<th colspan="1" rowspan="1">상승률</th>
+							<th colspan="1" rowspan="1">거래량</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td colspan="1" rowspan="1">사조해표alt="plus-img"</td><td colspan="1" rowspan="1">14,750</td><td colspan="1" rowspan="1"><span class="updown">▲</span>450</td><td colspan="1" rowspan="1">3.15%</td><td colspan="1" rowspan="1">65,180</td></tr>
+						<tr><td colspan="1" rowspan="1">마니커</td><td colspan="1" rowspan="1">537</td><td colspan="1" rowspan="1"><span class="updown">▲</span>15</td><td colspan="1" rowspan="1">2.87%</td><td colspan="1" rowspan="1">251,247</td></tr>
+						<tr><td colspan="1" rowspan="1">삼양제넥우</td><td colspan="1" rowspan="1">60,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>1,200</td><td colspan="1" rowspan="1">2.04%</td><td colspan="1" rowspan="1">46</td></tr>
+						<tr><td colspan="1" rowspan="1">삼양제넥스</td><td colspan="1" rowspan="1">98,600</td><td colspan="1" rowspan="1"><span class="updown">▲</span>1,800</td><td colspan="1" rowspan="1">1.86%</td><td colspan="1" rowspan="1">4,614</td></tr>
+						<tr><td colspan="1" rowspan="1">삼양사우</td><td colspan="1" rowspan="1">33,900</td><td colspan="1" rowspan="1"><span class="updown">▲</span>550</td><td colspan="1" rowspan="1">1.65%</td><td colspan="1" rowspan="1">589</td></tr>
+						<tr><td colspan="1" rowspan="1">대한제당3우8</td><td colspan="1" rowspan="1">26,400</td><td colspan="1" rowspan="1"><span class="updown">▲</span>300</td><td colspan="1" rowspan="1">1.15%</td><td colspan="1" rowspan="1">1</td></tr>
+						<tr><td colspan="1" rowspan="1">사조씨푸드</td><td colspan="1" rowspan="1">6,870</td><td colspan="1" rowspan="1"><span class="updown">▲</span>60</td><td colspan="1" rowspan="1">0.88%</td><td colspan="1" rowspan="1">141,898</td></tr>
+						<tr><td colspan="1" rowspan="1">대한제분</td><td colspan="1" rowspan="1">174,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>1,500</td><td colspan="1" rowspan="1">0.87%</td><td colspan="1" rowspan="1">771</td></tr>
+						<tr><td colspan="1" rowspan="1">서울식품우</td><td colspan="1" rowspan="1">12,600</td><td colspan="1" rowspan="1"><span class="updown">▲</span>100</td><td colspan="1" rowspan="1">0.80%</td><td colspan="1" rowspan="1">34</td></tr>
+						<tr><td colspan="1" rowspan="1">샘표식품</td><td colspan="1" rowspan="1">33,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>250</td><td colspan="1" rowspan="1">0.76%</td><td colspan="1" rowspan="1">11,266</td></tr>
+						<tr><td colspan="1" rowspan="1">MH에탄올</td><td colspan="1" rowspan="1">8,060</td><td colspan="1" rowspan="1"><span class="updown">▲</span>50</td><td colspan="1" rowspan="1">0.62%</td><td colspan="1" rowspan="1">52,305</td></tr>
+						<tr><td colspan="1" rowspan="1">롯데푸드</td><td colspan="1" rowspan="1">683,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>3,000</td><td colspan="1" rowspan="1">0.44</td><td colspan="1" rowspan="1">3,619</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="left-btngroup">
+				<input class="left-btn1" type="button" value="처음으로"/><input class="left-btn2" type="button" value="다음"/>
+			</div>
+		</div>
+		
+		<div class="left-div-2">
+			<div class="left-div-1-topmenu">
+				<button type="submit">차트</button>
+				<button type="submit">시장</button>
+				<button type="submit">업종</button>
+				<button type="submit">투자자</button>
+				<button type="submit">매매동향</button>
+				<button type="submit">잔고</button>
+				<button type="submit">매매정산</button>
+				<button type="submit">가능수량</button>
+				<button type="submit">실시간잔고</button>
+				<button type="submit">체결</button>
+				<button type="submit">미체결</button>
+				<button type="submit">실현손익</button>
+			</div>
+			<div class="left-div-2-menubar">
+				<div class="search">
+					<select class="search-select" name="number">
+						<option value="005930">005930</option>
+						<option value="005931">005931</option>
+						<option value="005932">005932</option>
+						<option value="005933">005933</option>
+					</select>
+					<input class="search-image" type="button"/>
+					<input class="search-result" type="text" value="삼성전자"/>
+				</div>
+				<span class="text">
+					[당일데이터 입력시간: 15시 04분, 단위: 주]
+				</span>			
+				<input class="search-btn1" type="button" value="참고"/>
+				<input class="search-btn2" type="button" value="조회"/>
+			</div>
+			
+			<div class="left-div-2-tgroup1">
+				<table class="left-div-2-table1">
+					<thead>
+						<tr>
+							<th colspan="1" rowspan="1">일자</th>
+							<th colspan="1" rowspan="1">종가</th>
+							<th colspan="1" rowspan="1">전일비</th>
+							<th colspan="1" rowspan="1">등락률</th>
+							<th colspan="1" rowspan="1">내/외국인</th>
+							<th colspan="1" rowspan="1">개인</th>
+							<th colspan="1" rowspan="1">기관</th>
+							<th colspan="1" rowspan="1">외국계회원</th>
+							<th colspan="1" rowspan="1">프로그램</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td colspan="1" rowspan="1">2014/11/27</td><td colspan="1" rowspan="1">1,264,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>63,000</td><td colspan="1" rowspan="1">5.25%</td><td colspan="1" rowspan="1">3,719</td><td colspan="1" rowspan="1">-152,399</td><td colspan="1" rowspan="1">145,071</td><td colspan="1" rowspan="1">35,547</td><td colspan="1" rowspan="1">20,052</td></tr>
+						<tr><td colspan="1" rowspan="1">2014/11/26</td><td colspan="1" rowspan="1">1,201,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>11,000</td><td colspan="1" rowspan="1">0.92%</td><td colspan="1" rowspan="1">-64,552</td><td colspan="1" rowspan="1">-10,915</td><td colspan="1" rowspan="1">76,008</td><td colspan="1" rowspan="1">-57,134</td><td colspan="1" rowspan="1">-40,240</td></tr>
+						<tr><td colspan="1" rowspan="1">2014/11/25</td><td colspan="1" rowspan="1">1,190,000</td><td colspan="1" rowspan="1"><span class="updown">▼</span>30,000</td><td colspan="1" rowspan="1">-2.46%</td><td colspan="1" rowspan="1">-76,809</td><td colspan="1" rowspan="1">44,096</td><td colspan="1" rowspan="1">32,722</td><td colspan="1" rowspan="1">-76,388</td><td colspan="1" rowspan="1">-43,375</td></tr>
+						<tr><td colspan="1" rowspan="1">2014/11/24</td><td colspan="1" rowspan="1">1,220,000</td><td colspan="1" rowspan="1"><span class="updown">▼</span>3,000</td><td colspan="1" rowspan="1">-0.25%</td><td colspan="1" rowspan="1">-29,336</td><td colspan="1" rowspan="1">5,867</td><td colspan="1" rowspan="1">22,384</td><td colspan="1" rowspan="1">-45,329</td><td colspan="1" rowspan="1">49,906</td></tr>
+					    <tr><td colspan="1" rowspan="1">2014/11/21</td><td colspan="1" rowspan="1">1,223,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>13,000</td><td colspan="1" rowspan="1">1.07%</td><td colspan="1" rowspan="1">-2,226</td><td colspan="1" rowspan="1">-9,307</td><td colspan="1" rowspan="1">12,813</td><td colspan="1" rowspan="1">-9,103</td><td colspan="1" rowspan="1">29,597</td></tr>										
+					</tbody>	
+				</table>
+			</div>		
+			<div class="left-btngroup">
+				<input class="left-btn1" type="button" value="처음으로"/>
+				<input class="left-btn2" type="button" value="다음"/>
+			</div>
+			<div class="left-div-2-tgroup2">
+				<table class="left-div-2-table2">
+					<thead>
+						<tr>
+							<th colspan="1" rowspan="1">매도상위</th>
+							<th colspan="1" rowspan="1">매도수량</th>
+							<th colspan="1" rowspan="1">매수상위</th>
+							<th colspan="1" rowspan="1">매수수량</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><th colspan="1" rowspan="1">CLSA</th><td colspan="1" rowspan="1">147,262</td><th colspan="1" rowspan="1">모간스텐리</th><td colspan="1" rowspan="1">123,998</td></tr>
+						<tr><th colspan="1" rowspan="1">우리투자</th><td colspan="1" rowspan="1">79,476</td><th colspan="1" rowspan="1">신한투자</th><td colspan="1" rowspan="1">58,093</td></tr>
+						<tr><th colspan="1" rowspan="1">도이지</th><td colspan="1" rowspan="1">69,867</td><th colspan="1" rowspan="1">골드만삭스</th><td colspan="1" rowspan="1">53,946</td></tr>
+						<tr><th colspan="1" rowspan="1">삼성증권</th><td colspan="1" rowspan="1">55,457</td><th colspan="1" rowspan="1">삼성증권</th><td colspan="1" rowspan="1">48,427</td></tr>
+						<tr><th colspan="1" rowspan="1">키움증권</th><td colspan="1" rowspan="1">45,899</td><th colspan="1" rowspan="1">JP모간</th><td colspan="1" rowspan="1">44,744</td></tr>
+						<tr><th colspan="1" rowspan="1">외국계합</th><td colspan="1" rowspan="1">228,934</td><th colspan="1" rowspan="1">외국계합</th><td colspan="1" rowspan="1">264,481</td></tr>
+					</tbody>
+				</table>
+				<div class="left-div-2-tgroup2-1">
+					<p>회사명 : CLSA</p>
+					<table class="left-div-2-table3">
+						<thead>
+							<tr>
+								<th colspan="1" rowspan="1">일자</th>
+								<th colspan="1" rowspan="1">매도</th>
+								<th colspan="1" rowspan="1">매수</th>
+								<th colspan="1" rowspan="1">순매수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td colspan="1" rowspan="1">2014/11/26</td><td colspan="1" rowspan="1">4,288</td><td colspan="1" rowspan="1">3,353</td><td colspan="1" rowspan="1">-935</td></tr>
+							<tr><td colspan="1" rowspan="1">2014/11/25</td><td colspan="1" rowspan="1">3,161</td><td colspan="1" rowspan="1">15,135</td><td colspan="1" rowspan="1">11,974</td></tr>
+							<tr><td colspan="1" rowspan="1">2014/11/24</td><td colspan="1" rowspan="1">35,637</td><td colspan="1" rowspan="1">9,789</td><td colspan="1" rowspan="1">-25,848</td></tr>
+							<tr><td colspan="1" rowspan="1">2014/11/21</td><td colspan="1" rowspan="1">374</td><td colspan="1" rowspan="1">2,127</td><td colspan="1" rowspan="1">1,753</td></tr>
+							<tr><td colspan="1" rowspan="1">2014/11/20</td><td colspan="1" rowspan="1">41,884</td><td colspan="1" rowspan="1">37,889</td><td colspan="1" rowspan="1">-3,995</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="right-div">
+		<div class="right-div-1">
+			<div class="right-div-1-topmenu">
+				<button type="submit">현재가</button>
+				<button type="submit">체결/거래원</button>
+				<button type="submit">일별</button>
+				<button type="submit">시간별</button>
+				<button type="submit">상세1</button>
+				<button type="submit">상세2</button>
+			</div>
+			<div class="left-div-1-menubar">
+				<div class="search2">
+					<select class="search-select" name="number">
+						<option value="005930">005930</option>
+						<option value="005931">005931</option>
+						<option value="005932">005932</option>
+						<option value="005933">005933</option>
+					</select>
+					<input class="search-image" type="button"/>
+					<input class="search-result" type="text" value="삼성전자"/>
+					<input class="search-btn3" type="button" value="10호가"/>
+				</div>
+			</div>
+			
+			<div class="right-div-1-tgroup1">		
+				<table class="right-div-1-table1">
+					<tbody>
+						<tr><td colspan="1" rowspan="1"><div class="bullet01"><img alt="bullet01" src="bullet01.png"/></div>현재가</td><td colspan="1" rowspan="1">1,264,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>63,000</td><td colspan="1" rowspan="1">5.25%</td><td colspan="1" rowspan="1">844,358</td></tr>
+					</tbody>
+				</table>	
+			</div>
+			
+			<div class="right-div-1-tgroup2">
+				<table class="right-div-1-table2">
+				<thead>
+					<tr class="head"><th colspan="1" rowspan="1">대비</th><th colspan="1" rowspan="1">매도잔량</th><th colspan="1" rowspan="1">15:30:01</th><th colspan="1" rowspan="1">매수잔량</th><th colspan="1" rowspan="1">대비</th></tr>
+				</thead>
+				<tbody>
+					<tr><td colspan="1" rowspan="1"/><td colspan="1" rowspan="1">293</td><td colspan="1" rowspan="1">1,269,000</td><td colspan="2" rowspan="5">
+						<table id="right-table-2-1">
+							<tbody>
+								<tr><td colspan="1" rowspan="1"><span class="bullet02"><img alt="bullet02" src="bullet02.png" width="4px;"/>상한가</span></td><td colspan="1" rowspan="1">1,381,000</td></tr>
+								<tr><td colspan="1" rowspan="1"><span class="bullet02"><img alt="bullet02" src="bullet02.png" width="4px;"/>하한가</span></td><td colspan="1" rowspan="1">1,021,000</td></tr>
+								<tr><td colspan="2" rowspan="3"/></tr>
+							</tbody>
+						</table>
+					</td></tr>
+					<tr><td colspan="1" rowspan="1"/><td colspan="1" rowspan="1">132</td><td colspan="1" rowspan="1">1,269,000</td></tr>
+					<tr><td colspan="1" rowspan="1"/><td colspan="1" rowspan="1">475</td><td colspan="1" rowspan="1">1,269,000</td></tr>
+					<tr><td colspan="1" rowspan="1"/><td colspan="1" rowspan="1">168</td><td colspan="1" rowspan="1">1,269,000</td></tr>
+					<tr><td colspan="1" rowspan="1"/><td colspan="1" rowspan="1">218</td><td colspan="1" rowspan="1">1,269,000</td></tr>
+					<tr><td colspan="2" rowspan="5">
+						<table id="right-table-2-2">
+							<tbody>
+								<tr><td colspan="1" rowspan="1"><span class="bullet02"><img alt="bullet02" src="bullet02.png" width="4px;"/>시가</span></td><td colspan="1" rowspan="1">1,273,000 / 6%</td></tr>
+								<tr><td colspan="1" rowspan="1"><span class="bullet02"><img alt="bullet02" src="bullet02.png" width="4px;"/>고가</span></td><td colspan="1" rowspan="1">1,301,000 / 8.33%</td></tr>
+								<tr><td colspan="1" rowspan="1"><span class="bullet02"><img alt="bullet02" src="bullet02.png" width="4px;"/>저가</span></td><td colspan="1" rowspan="1">1,264,000 / 5.25%</td></tr>
+								<tr><td colspan="1" rowspan="1"><span class="bullet02"><img alt="bullet02" src="bullet02.png" width="4px;"/>전일</span></td><td colspan="1" rowspan="1">1,201,000</td></tr>
+								<tr><td colspan="1" rowspan="1"><span class="bullet02"><img alt="bullet02" src="bullet02.png" width="4px;"/>가중</span></td><td colspan="1" rowspan="1">1,283,019 / 6.83%</td></tr>
+							</tbody>
+						</table>
+					</td><td colspan="1" rowspan="1">1,264,000</td><td colspan="1" rowspan="1">1,586</td><td colspan="1" rowspan="1"/></tr>
+					<tr><td colspan="1" rowspan="1">1,263,000</td><td colspan="1" rowspan="1">1,633</td><td colspan="1" rowspan="1"/></tr>
+					<tr><td colspan="1" rowspan="1">1,262,000</td><td colspan="1" rowspan="1">1,105</td><td colspan="1" rowspan="1"/></tr>
+					<tr><td colspan="1" rowspan="1">1,261,000</td><td colspan="1" rowspan="1">1,383</td><td colspan="1" rowspan="1"/></tr>
+					<tr><td colspan="1" rowspan="1">1,260,000</td><td colspan="1" rowspan="1">2,432</td><td colspan="1" rowspan="1"/></tr>
+					<tr><td colspan="1" rowspan="1"/><td colspan="1" rowspan="1">3,695</td><th colspan="1" rowspan="1">15,169</th><td colspan="1" rowspan="1">18,864</td><td colspan="1" rowspan="1"/></tr>
+					<tr><td colspan="1" rowspan="1"/><td colspan="1" rowspan="1"/><th colspan="1" rowspan="1">시간외</th><td colspan="1" rowspan="1">485</td><td colspan="1" rowspan="1"/></tr>
+				</tbody>
+			</table>	
+			</div>
+			
+		</div> 	
+		<div class="right-div-2">
+			<div class="right-div-2-topmenu">
+				<button type="submit">매수</button>
+				<button type="submit">매도</button>
+				<button type="submit">정정</button>
+				<button type="submit">취소</button>
+			</div>
+			<div class="orderform-div">
+			<form action="" class="orderform" enctype="application/x-www-form-urlencoded" method="get">
+				<div>
+					<label>계좌번호</label>
+					<select class="account" name="account">
+						<option value="1">34083141-11[위탁]</option>
+						<option value="2">34083142-11[위탁]</option>
+					</select>
+					<input class="search" type="text" value="평다진"/>
+				</div>
+				<div>
+					<label>비밀번호</label>
+					<input class="password" type="text"/>
+				</div>
+				<div>
+					<label>종목코드</label><select class="number" name="number">
+						<option value="005930">005930</option>
+						<option value="005931">005931</option>
+					</select>
+					<input class="search-image" type="button"/>
+					<input class="search" type="text" value="삼성전자"/>
+				</div>
+				<div>
+					<label>매매구분</label>
+					<select class="account" name="account">
+						<option value="1">지정가</option>
+						<option value="2">상한가</option>
+					</select>
+				</div>
+				<div>
+					<label>매수수량 </label><a class="minus" href="#" shape="rect"><img alt="minus-img" class="minus-img" src="minus.png"/></a><input class="count" type="text"/><a class="plus" href="#" shape="rect"><img alt="plus-img" class="plus-img" src="plus.png"/></a><input class="count-btn1" type="button" value="주"/><input class="count-btn2" type="button" value="현금"/><input class="count-btn2" type="button" value="최대"/>
+				</div>
+				<div>
+					<label>매수단가</label><a class="minus" href="#" shape="rect"><img alt="minus-img" class="minus-img" src="minus.png"/></a><input class="count" type="text" value="1,264,000"/><a class="plus" href="#" shape="rect"><img alt="plus-img" class="plus-img" src="plus.png"/></a> 원
+					</div>
+				<div>
+					<label>신용구분</label><input type="checkbox" value="c"/>신용매수
+					<select class="account" name="c">
+						<option value="1">신용융자</option>
+					</select>
+				</div>
+				<div>
+					<label/><input class="ordernumber1" type="text" value="삼성전자"/>
+				</div>
+				<div>
+					<label>주문번호</label><input class="ordernumber2" type="text" value="삼성전자"/>
+				</div>
+				<div>
+					<input class="orderform-btn1" type="button" value="시장가 주문"/>
+					<input class="orderform-btn2" type="button" value="매수"/>
+				</div>
+			</form>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<div id="main2">
+	<form action="search3" enctype="application/x-www-form-urlencoded" method="get">
+		<div class="a"><label>id</label><input class="input1" id="id" name="id" type="text"/></div>
+		<div class="a"><label>노드명</label><input class="input2" id="node" name="node" type="text"/></div>
+		<div class="a"><label>속성명</label><input class="input2" id="att_name" name="att_name" type="text"/></div>
+		<div class="a"><label>속성값</label><input class="input2" id="att_value" name="att_value" type="text"/></div>
+		<div class="b">
+			<input class="input3" onclick="search1()" type="button" value="검색(JavaScript)"/>
+			<input class="input3" type="submit" value="검색(Java)"/>
+			<input class="input3" type="button" value="검색(JQuery)"/>
+		</div>
+	</form>
+	<div class="c" id="c">찾은 갯수는 7개 입니다.</div>
+</div>
+
+</body>
+</html>

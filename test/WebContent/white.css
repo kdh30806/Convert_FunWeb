@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-html, body{
+html{
 	height: 100%;
 	font-size: 12px;
 	box-sizing: border-box;
@@ -546,6 +546,7 @@ _:-ms-fullscreen, :root .search-btn2{
 	text-align: right;
 	border-collapse: collapse;
 	margin-left: 3px;
+	margin-bottom: 55px;
 }
 
 #right-table-2-1 tr{
