@@ -3,7 +3,8 @@
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 <link href="white.css" rel="stylesheet"/>
 <link href="main2.css" rel="stylesheet"/>
-<script type="text/javascript" xml:space="preserve">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
 //<![CDATA[
 	function search1() {
 		
@@ -50,6 +51,23 @@
 			return false;
 		}
 	}
+	
+	$(document).ready(function(){
+		
+		alert("test");
+		$('#search3').click(function(){
+			
+			alert("test");
+			
+// 			var count = 0;
+// 			var temp = 0;
+// 			var id = document.getElementById('id').value;
+// 			var node_name = document.getElementById('node').value;
+// 			var att_name = document.getElementById('att_name').value;
+// 			var att_value = document.getElementById('att_value').value;
+// 			var id_position = document.getElementById(id);
+		});		
+	});	
 //]]>
 </script>
 <title>Insert title here</title>
@@ -119,7 +137,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr><td colspan="1" rowspan="1">사조해표alt="plus-img"</td><td colspan="1" rowspan="1">14,750</td><td colspan="1" rowspan="1"><span class="updown">▲</span>450</td><td colspan="1" rowspan="1">3.15%</td><td colspan="1" rowspan="1">65,180</td></tr>
+						<tr><td colspan="1" rowspan="1">사조해표</td><td colspan="1" rowspan="1">14,750</td><td colspan="1" rowspan="1"><span class="updown">▲</span>450</td><td colspan="1" rowspan="1">3.15%</td><td colspan="1" rowspan="1">65,180</td></tr>
 						<tr><td colspan="1" rowspan="1">마니커</td><td colspan="1" rowspan="1">537</td><td colspan="1" rowspan="1"><span class="updown">▲</span>15</td><td colspan="1" rowspan="1">2.87%</td><td colspan="1" rowspan="1">251,247</td></tr>
 						<tr><td colspan="1" rowspan="1">삼양제넥우</td><td colspan="1" rowspan="1">60,000</td><td colspan="1" rowspan="1"><span class="updown">▲</span>1,200</td><td colspan="1" rowspan="1">2.04%</td><td colspan="1" rowspan="1">46</td></tr>
 						<tr><td colspan="1" rowspan="1">삼양제넥스</td><td colspan="1" rowspan="1">98,600</td><td colspan="1" rowspan="1"><span class="updown">▲</span>1,800</td><td colspan="1" rowspan="1">1.86%</td><td colspan="1" rowspan="1">4,614</td></tr>
@@ -354,10 +372,10 @@
 					</select>
 				</div>
 				<div>
-					<label>매수수량 </label><a class="minus" href="#" shape="rect"><img alt="minus-img" class="minus-img" src="minus.png"/></a><input class="count" type="text"/><a class="plus" href="#" shape="rect"><img alt="plus-img" class="plus-img" src="plus.png"/></a><input class="count-btn1" type="button" value="주"/><input class="count-btn2" type="button" value="현금"/><input class="count-btn2" type="button" value="최대"/>
+					<label>매수수량 </label><a class="minus" href="#"><img alt="minus-img" class="minus-img" src="minus.png"/></a><input class="count" type="text"/><a class="plus" href="#"><img alt="plus-img" class="plus-img" src="plus.png"/></a><input class="count-btn1" type="button" value="주"/><input class="count-btn2" type="button" value="현금"/><input class="count-btn2" type="button" value="최대"/>
 				</div>
 				<div>
-					<label>매수단가</label><a class="minus" href="#" shape="rect"><img alt="minus-img" class="minus-img" src="minus.png"/></a><input class="count" type="text" value="1,264,000"/><a class="plus" href="#" shape="rect"><img alt="plus-img" class="plus-img" src="plus.png"/></a> 원
+					<label>매수단가</label><a class="minus" href="#"><img alt="minus-img" class="minus-img" src="minus.png"/></a><input class="count" type="text" value="1,264,000"/><a class="plus" href="#"><img alt="plus-img" class="plus-img" src="plus.png"/></a> 원
 					</div>
 				<div>
 					<label>신용구분</label><input type="checkbox" value="c"/>신용매수
@@ -382,7 +400,7 @@
 	</div>
 </div>
 <div id="main2">
-	<form action="search3" enctype="application/x-www-form-urlencoded" method="get">
+	<form action="search3" class="search" enctype="application/x-www-form-urlencoded" method="get">
 		<div class="a"><label>id</label><input class="input1" id="id" name="id" type="text"/></div>
 		<div class="a"><label>노드명</label><input class="input2" id="node" name="node" type="text"/></div>
 		<div class="a"><label>속성명</label><input class="input2" id="att_name" name="att_name" type="text"/></div>
@@ -390,10 +408,10 @@
 		<div class="b">
 			<input class="input3" onclick="search1()" type="button" value="검색(JavaScript)"/>
 			<input class="input3" type="submit" value="검색(Java)"/>
-			<input class="input3" type="button" value="검색(JQuery)"/>
+			<input class="input3" type="button" value="검색(JQuery)" id="search3"/>
 		</div>
 	</form>
-	<div class="c" id="c">찾은 갯수는 7개 입니다.</div>
+	<div class="c" id="c"></div>
 </div>
 
 </body>

@@ -53,8 +53,8 @@ public class search3 extends HttpServlet {
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder documentBuilder = factory.newDocumentBuilder();
-			Document document = documentBuilder.parse("C:\\Users\\CI\\git\\Repository\\test\\WebContent\\white.xhtml");
-			
+//			Document document = documentBuilder.parse("C:\\Users\\CI\\git\\Repository\\test\\WebContent\\white.xhtml");
+			Document document = documentBuilder.parse(request.getRealPath("/")+"/white.xhtml");
 			XPathFactory xPathFactory = XPathFactory.newInstance();
 			XPath xPath = xPathFactory.newXPath();
 			
@@ -89,11 +89,13 @@ public class search3 extends HttpServlet {
 				count = 1;
 			}
 			
-			expr = xPath.compile("//div[@id='c']");
-			result = expr.evaluate(document, XPathConstants.NODESET);
-			Node node1 = (Node) result;
-			node1.setTextContent("찾은 갯수는 " + count + "개 입니다.");
-			response.getWriter().append("Served at: " + count);
+//			expr = xPath.compile("//div[@id='c']");
+//			result = expr.evaluate(document, XPathConstants.NODESET);
+//			Node node1 = (Node) result;
+//			node1.setTextContent("찾은 갯수는 " + count + "개 입니다.");
+			System.out.println("찾은 갯수는 : " + count + "개 입니다.");
+			response.setContentType("text/html;charset=UTF-8");
+			response.getWriter().append("찾은 갯수는: " + count + "개 입니다.");
 //			response.sendRedirect("white.xhtml");
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
