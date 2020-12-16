@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 <link href="white.css" rel="stylesheet"/>
@@ -8,66 +10,106 @@
 //<![CDATA[
 	function search1() {
 		
-		var count = 0;
-		var temp = 0;
 		var id = document.getElementById('id').value;
-		var node_name = document.getElementById('node').value;
+		var node_name = document.getElementById('node_name').value;
 		var att_name = document.getElementById('att_name').value;
 		var att_value = document.getElementById('att_value').value;
-		var id_position = document.getElementById(id);
 		
-		console.log("찾은 ID의 태그 : " + id_position);		
-		console.log("찾은 NODE의 개수 : " + document.getElementsByName(node_name).length);
+		var count = checkDOM(document.getElementById('main'), id, node_name, att_name, att_value, 0);	
+		document.getElementById("c").textContent = "총   " + count + "개입니다.";
+	}
+	
+	$(document).ready(function(){
+
+		$('#search3').click(function(){
 			
-		if(isEmpty(id)){
-			for(var i = 0 ; i < document.getElementsByName(node_name).length ; i++){ //name으로 찾은 노드의 갯수만큼 반복
-				if(document.getElementsByName(node_name)[i].value != null){ // 널이 아니면
-						if(!isEmpty(att_name)){ // att_name 이 비어있지 않으면
-							if(!isEmpty(att_value)){ //att_value 가 비어있지 않으면
-								if(document.getElementsByName(node_name)[i].getAttribute(att_name) == att_value){ // 속성값이 일치 한다면
-									count++;
-								}
-							}else{
-								if(document.getElementsByName(node_name)[i].getAttribute(att_name) != null){
-									count++;
-								}						
-							}
-						}else{
-							count = document.getElementsByName(node_name).length;
-						}
-					}
+			var count = 0;
+			var id = $('#id').val();
+			var node_name = $('#node_name').val();
+			var att_name = $('#att_name').val();
+			var att_value = $('#att_value').val();
+			
+			var count = checkDOM_2($("#main"), id, node_name, att_name, att_value, 0);	
+			document.getElementById("c").textContent = "총   " + count + "개입니다.";
+		});		
+	});	
+		
+	function checkDOM(node, id, node_name, att_name, att_value, depth){
+		
+		for(var i = 0 ; i < node.childNodes.length; i++){			
+			depth = checkDOM(node.childNodes[i], id, node_name, att_name, att_value, depth);			
+		}
+		
+		if(node.nodeType != 3){
+			if(!isEmpty(id)){ // id 안비어져있으면 => 비어져있으면 계쏙 진행
+				if(node.id != id){ // id 비교 => 일치하지 않으면 
+					return depth; 
+				}
+			}
+		
+			if(!isEmpty(node_name)){
+				if(node.nodeName != node_name){
+					return depth; 
+				}
+			}
+		
+			if(!isEmpty(att_name)){ // 속성이름 안비어져있으면
+				if(!(node.hasAttribute(att_name))){ // 비교 속성 가지고 있지 않으면
+					return depth;  // 다음 반복문 실행
+				}	
+			}
+			
+			if(!isEmpty(att_value)){
+				if(node.getAttribute(att_name) != att_value){
+					return depth;
+				}
 			}			
-		}else{
-			count = 1;
+			depth++;
+		}
+		return depth;
+	}
+	
+	function checkDOM_2(node, id, node_name, att_name, att_value, depth){
+		
+		for(var i = 0 ; i < node.children().length; i++){	
+			depth = checkDOM_2(node.children().eq(i), id, node_name, att_name, att_value, depth);						
+		}
+		
+		if(!isEmpty(id)){ // id 안비어져있으면 => 비어져있으면 계쏙 진행
+			if(node.attr("id") != id){ // id 비교 => 일치하지 않으면 
+				return depth; 
+			}
+		}
+		
+		if(!isEmpty(node_name)){
+			if(node.prop("tagName") != node_name){
+				return depth; 
+			}
+		}
+		
+		if(!isEmpty(att_name)){ // 속성이름 안비어져있으면
+			if(typeof node.attr(att_name) == "undefined"){ // 비교 속성 가지고 있지 않으면 => 없으면
+				return depth;  // 다음 반복문 실행
+			}
+		}
+		
+		if(!isEmpty(att_value)){
+			if(node.attr(att_name) != att_value){
+				return depth;
+			}
 		}		
 		
-		console.log(count);
-		document.getElementById("c").textContent = "총   " + count + "개입니다.";
-		}
+		depth++;
+		return depth;
+	}
+	
 	function isEmpty(value) {
 		if(typeof value == "undefined" || value == null || value == ""){
 			return true;
 		}else{
 			return false;
 		}
-	}
-	
-	$(document).ready(function(){
-		
-		alert("test");
-		$('#search3').click(function(){
-			
-			alert("test");
-			
-// 			var count = 0;
-// 			var temp = 0;
-// 			var id = document.getElementById('id').value;
-// 			var node_name = document.getElementById('node').value;
-// 			var att_name = document.getElementById('att_name').value;
-// 			var att_value = document.getElementById('att_value').value;
-// 			var id_position = document.getElementById(id);
-		});		
-	});	
+	}	
 //]]>
 </script>
 <title>Insert title here</title>
@@ -395,22 +437,23 @@
 				</div>
 			</form>
 			</div>
-			
 		</div>
 	</div>
 </div>
 <div id="main2">
-	<form action="search3" class="search" enctype="application/x-www-form-urlencoded" method="get">
-		<div class="a"><label>id</label><input class="input1" id="id" name="id" type="text"/></div>
-		<div class="a"><label>노드명</label><input class="input2" id="node" name="node" type="text"/></div>
-		<div class="a"><label>속성명</label><input class="input2" id="att_name" name="att_name" type="text"/></div>
-		<div class="a"><label>속성값</label><input class="input2" id="att_value" name="att_value" type="text"/></div>
-		<div class="b">
-			<input class="input3" onclick="search1()" type="button" value="검색(JavaScript)"/>
-			<input class="input3" type="submit" value="검색(Java)"/>
-			<input class="input3" type="button" value="검색(JQuery)" id="search3"/>
-		</div>
-	</form>
+	<div class="node-search">
+		<form action="search2" enctype="application/x-www-form-urlencoded" method="get">
+			<div class="a"><label>Id</label><input class="input1" id="id" name="id" type="text"/></div>
+			<div class="a"><label>노드명</label><input class="input2" id="node_name" name="node_name" type="text"/></div>
+			<div class="a"><label>속성명</label><input class="input2" id="att_name" name="att_name" type="text"/></div>
+			<div class="a"><label>속성값</label><input class="input2" id="att_value" name="att_value" type="text"/></div>
+			<div class="b">
+				<input class="input3" onclick="search1()" type="button" value="검색(JavaScript)"/>
+				<input class="input3" type="submit" value="검색(Java)"/>
+				<input class="input3" type="button" value="검색(JQuery)" id="search3"/>
+			</div>
+		</form>
+	</div>
 	<div class="c" id="c"></div>
 </div>
 

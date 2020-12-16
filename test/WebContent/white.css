@@ -669,7 +669,6 @@ _:-ms-fullscreen, :root #right-table-2-1 td:nth-child(2){
    -o-appearance:none;
    appearance:none; 
    border:1px solid #E4E4E4;
-   background:url('arrow.png') no-repeat right 9px center;
    background-color: white;
 }
 

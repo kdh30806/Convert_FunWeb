@@ -2,11 +2,10 @@
 
 #main2{
 	width: 700px;
-	height: 500px;
+	height: 600px;
 	margin-left: auto;
 	margin-right: auto;
-	border: 1px solid black;
-	padding: 100px;
+	padding: 100px 100px 0 100px;
 	display: block;
 	clear: both;
 }
@@ -49,7 +48,44 @@
 	height: 30px;
 }
 
-.c{
+.node-search{
 	display: block;
-	margin-top: 10px;
+}
+
+.c{
+	font-size: 40px;
+	clear: both;
+	display: block;
+	margin-top: 30px;
+}
+
+.table-add{
+	width: 700px;
+	height: auto;
+}
+
+.table-add th{
+	width: 20%;
+}
+
+.table-add td{
+	text-align: right;
+}
+
+.table-add-input input{
+	width: 128px;
+	display: inline-block;
+}
+
+.add{
+	float: right;
+	margin-top: 20px;
+	width: 135px;
+	height: 25px;
+}
+
+.updown{
+	float: left; 
+	margin-left: 12px;
+	padding-left: 7px;
 }

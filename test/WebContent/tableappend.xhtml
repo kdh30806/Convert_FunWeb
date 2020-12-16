@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<link href="white.css" rel="stylesheet"/>
+<link href="main2.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	function addRow() {
+		
+		var txt1 = document.getElementById("txt1").value;
+		var txt2 = document.getElementById("txt2").value;
+		var txt3 = document.getElementById("txt3").value;
+		var txt4 = document.getElementById("txt4").value;
+		var txt5 = numberWithCommas(document.getElementById("txt5").value);
+	
+		var table = document.getElementById("table-add");
+		var table_body = document.getElementById("table-add-tbody");
+		
+		console.log(table.rows.length);
+		if(table.rows.length > 1){
+			var before_row = document.getElementById("txt3-div").innerHTML;
+			console.log(before_row);
+		}
+		
+		
+		var row = table_body.insertRow(0);
+		
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		
+		cell1.innerHTML = txt1;
+		cell2.innerHTML = txt2;
+		cell4.innerHTML = txt4;
+		cell5.innerHTML = txt5;
+		
+		if(before_row < txt3){
+			cell2.style.color = "red";
+			cell3.style.color = "red";
+			cell4.style.color = "red";
+			cell3.innerHTML = '<span class="updown">▲</span><div id="txt3-div">' + txt3 + "</div>";
+		}else if(before_row > txt3){
+			cell2.style.color = "blue";
+			cell3.style.color = "blue";
+			cell4.style.color = "blue";
+			cell3.innerHTML = '<span class="updown">▼</span><div id="txt3-div">' + txt3 + "</div>";
+		} else{
+			cell3.innerHTML = '<div id="txt3-div">' + txt3 + "</div>";
+		}
+	}
+	
+	function removeRow(){
+		var table = document.getElementById("table-add");
+		table.deleteRow(table.rows.length-1);
+	}
+	
+	$(document).ready(function(){
+
+		$('#addRowjQ').click(function(){
+			
+			var txt1 = $("#txt1").val();
+			var txt2 = $("#txt2").val();
+			var txt3 = $("#txt3").val();
+			var txt4 = $("#txt4").val();
+			var txt5 = numberWithCommas($("#txt5").val());
+			var table = $("#table-add");
+			var table_body = $("#table-add-tbody");
+			
+			var before_row = $('#txt3-div').html();
+			console.log(before_row);
+			
+			if(before_row < txt3){
+				$("#table-add-tbody:first").prepend('<tr><td>'+txt1+'</td><td>'+txt2+'</td><td><span class="updown">▲</span><div id="txt3-div">'+txt3+'</div></td><td>'+txt4+'</td><td>'+txt5+'</td></tr>');
+				$('tr:eq(1)>td:eq(1)').css('color','red');
+				$('tr:eq(1)>td:eq(2)').css('color','red');
+				$('tr:eq(1)>td:eq(3)').css('color','red');
+			}else if(before_row > txt3){
+				$("#table-add-tbody:first").prepend('<tr><td>'+txt1+'</td><td>'+txt2+'</td><td><span class="updown">▼</span><div id="txt3-div">'+txt3+'</div></td><td>'+txt4+'</td><td>'+txt5+'</td></tr>');
+				$('tr:eq(1)>td:eq(1)').css('color','blue');
+				$('tr:eq(1)>td:eq(2)').css('color','blue');
+				$('tr:eq(1)>td:eq(3)').css('color','blue');	
+			}else{
+				$("#table-add-tbody:first").prepend('<tr><td>'+txt1+'</td><td>'+txt2+'</td><td><div id="txt3-div">'+txt3+'</div></td><td>'+txt4+'</td><td>'+txt5+'</td></tr>');
+			}
+
+
+		});		
+		
+		$('#removeRowjQ').click(function(){
+			$('#table-add > tbody > tr:last').remove();
+		});	
+	});
+	
+	function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+//]]>
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+<div id="main2">
+	<div class="table-add-div">
+		<table class="table-add" id="table-add">
+			<thead>
+				<tr><th>시간</th><th>주가</th><th>전일대비</th><th>체결량</th><th>누적거래량</th></tr>
+			</thead>
+			<tbody id="table-add-tbody"></tbody>
+		</table>
+	</div>
+	
+	<div class="table-add-input">
+		<input type="text" id="txt1"/>
+		<input type="text" id="txt2"/>
+		<input type="text" id="txt3"/>
+		<input type="text" id="txt4"/>
+		<input type="text" id="txt5"/>
+	</div>
+		<button value="추가" class="add" onclick="removeRow()">삭제(javascript)</button>
+		<button value="추가" class="add" onclick="addRow()">추가(javascript)</button>
+		<button value="추가" class="add" id="removeRowjQ">삭제(jquery)</button>
+		<button value="추가" class="add" id="addRowjQ">추가(jquery)</button>
+</div>
+
+</body>
+</html>
