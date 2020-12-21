@@ -11,7 +11,7 @@ public class PageDAO {
 	public void cal() {
 		pageSize = 7;
 		startRow = (pageNum - 1) * pageSize + 1;
-		endRow = pageNum * pageSize + 1;
+		endRow = pageNum * pageSize;
 	}
 
 	public int getCount() {

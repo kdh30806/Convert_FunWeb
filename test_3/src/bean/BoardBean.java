@@ -15,6 +15,7 @@ public class BoardBean {
 	private int re_lev;
 	private int re_seq;
 	private Timestamp date;
+	private int read_count;
 	
 	public int getNum() {
 		return num;
@@ -78,6 +79,13 @@ public class BoardBean {
 	public void setOriginFile(String originFile) {
 		this.originFile = originFile;
 	}
+	public int getRead_count() {
+		return read_count;
+	}
+	public void setRead_count(int read_count) {
+		this.read_count = read_count;
+	}
+	
 	
 	
 }

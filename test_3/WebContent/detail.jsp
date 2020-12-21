@@ -45,7 +45,9 @@ $(document).ready(function(){
 			</div>
 				<div class="mb-3">
  					 <label for="formFile" class="form-label">파일</label>
- 					 <input class="form-control" id="file" type="text" name="file" value="${bb.originFile}" readonly="readonly" onclick="location.href='download.bo?file=${bb.file}'">
+ 					 <c:if test="${bb.file != null}">
+ 					 	<input class="form-control" id="file" type="text" name="file" value="${bb.originFile}" readonly="readonly" onclick="location.href='download.bo?file=${bb.file}'">
+ 					 </c:if>
 				</div>
 			</div>
 		<div class="btngroup">
@@ -59,7 +61,7 @@ $(document).ready(function(){
 						<button type="button"  class="btn btn-secondary btn-lg" id="modal_close_btn">아니오</button>
 					</div>
 				</div>
-			<button type="button" class="btn btn-secondary btn-lg" onclick="location.href='main.bo'">뒤로가기</button>
+			<button type="button" class="btn btn-secondary btn-lg" onclick="location.href=document.referrer">뒤로가기</button>
 		</div>
 		</form>	
 	</div>

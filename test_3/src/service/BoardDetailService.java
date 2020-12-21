@@ -17,6 +17,14 @@ public class BoardDetailService {
 		
 		bd.setConnection(con);
 		
+		int isSuccess = bd.updateReadCount(num);
+		
+		if(isSuccess > 0 ) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		
 		BoardBean bb = bd.getBoard(num);
 		
 		return bb;

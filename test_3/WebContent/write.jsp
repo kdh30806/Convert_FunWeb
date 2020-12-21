@@ -35,7 +35,7 @@
 			</div>
 		<div class="btngroup">
 			<button type="submit" class="btn btn-secondary btn-lg">작성하기</button>
-			<button type="button" class="btn btn-secondary btn-lg" onclick="location.href='main.bo'">취소</button>
+			<button type="button" class="btn btn-secondary btn-lg" onclick="location.href=document.referrer">취소</button>
 		</div>
 		</form>	
 	</div>

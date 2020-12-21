@@ -87,7 +87,7 @@ public class BoardDAO {
 			Clob clob = con.createClob();
 			clob.setString(1, bb.getContent());
 
-			String sql = "insert into board values(?,?,?,?,?,?,?,?,?,sysdate)";
+			String sql = "insert into board values(?,?,?,?,?,?,?,?,?,sysdate,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, maxNum());
 			pstmt.setString(2, bb.getName());
@@ -100,9 +100,9 @@ public class BoardDAO {
 			} else {
 				pstmt.setInt(7, bb.getRe_ref());
 			}
-			pstmt.setInt(9, bb.getRe_seq());
 			pstmt.setInt(8, bb.getRe_lev());
-			
+			pstmt.setInt(9, bb.getRe_seq());
+			pstmt.setInt(10, 0);
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -140,6 +140,7 @@ public class BoardDAO {
 				bb.setRe_ref(rs.getInt("re_ref"));
 				bb.setRe_lev(rs.getInt("re_lev"));
 				bb.setRe_seq(rs.getInt("re_seq"));
+				bb.setRead_count(rs.getInt("read_count"));
 
 				boardList.add(bb);
 			}
@@ -176,6 +177,7 @@ public class BoardDAO {
 				bb.setRe_ref(rs.getInt("re_ref"));
 				bb.setRe_lev(rs.getInt("re_lev"));
 				bb.setRe_seq(rs.getInt("re_seq"));
+				bb.setRead_count(rs.getInt("read_count"));
 
 			}
 		} catch (SQLException e) {
@@ -253,7 +255,91 @@ public class BoardDAO {
 
 		return count;
 	}
+	
+	public int getBoardCount(String search) {
 
+		int count = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "select count(*) from board where board_subject like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+search+"%");
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return count;
+	}
+
+	public ArrayList<BoardBean> getSearchList(String search, PageDAO pd) {
+		
+		ArrayList<BoardBean> boardList = new ArrayList<BoardBean>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "select * from (select ROW_NUMBER() over (order by re_ref desc, re_seq) NUM,  b.* from board b where board_subject like ? order by re_ref desc, re_seq) where NUM between ?and?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+search+"%");
+			pstmt.setInt(2, pd.getStartRow());
+			pstmt.setInt(3, pd.getEndRow());
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardBean bb = new BoardBean();
+
+				bb.setNum(rs.getInt("board_num"));
+				bb.setName(rs.getString("board_name"));
+				bb.setSubject(rs.getString("board_subject"));
+				bb.setContent(rs.getString("board_content"));
+				bb.setFile(rs.getString("board_file"));
+				bb.setOriginFile(rs.getString("board_originfile"));
+				bb.setDate(rs.getTimestamp("date"));
+				bb.setRe_ref(rs.getInt("re_ref"));
+				bb.setRe_lev(rs.getInt("re_lev"));
+				bb.setRe_seq(rs.getInt("re_seq"));
+				bb.setRead_count(rs.getInt("read_count"));
+
+				boardList.add(bb);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return boardList;
+	}
+	
+	public int updateReadCount(int num) {
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "update board set read_count=read_count+1 where board_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,	num);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return 0;
+	}
 
 
 }

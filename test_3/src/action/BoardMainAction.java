@@ -9,6 +9,7 @@ import bean.BoardBean;
 import dao.PageDAO;
 import dao.PageMaker;
 import service.BoardMainService;
+import service.BoardPageService;
 import vo.ActionForward;
 
 public class BoardMainAction implements Action{
@@ -21,9 +22,10 @@ public class BoardMainAction implements Action{
 		String pageNum = request.getParameter("pageNum");
 		
 		BoardMainService service = new BoardMainService();
+		BoardPageService service2 = new BoardPageService();
 		
 		ArrayList<BoardBean> boardList = service.getBoardList(pageNum);
-		PageMaker pageMaker = service.getPageMaker(pageNum);
+		PageMaker pageMaker = service2.getPageMaker(pageNum);
 		
 		request.setAttribute("page", pageMaker);
 		request.setAttribute("boardList", boardList);

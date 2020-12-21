@@ -7,13 +7,11 @@ import static vo.JDBCUtill.*;
 import bean.BoardBean;
 import dao.BoardDAO;
 import dao.PageDAO;
-import dao.PageMaker;
 
+public class BoardSearchService {
 
-public class BoardMainService {
+	public ArrayList<BoardBean> getSearchList(String search, String pageNum) {
 
-	public ArrayList<BoardBean> getBoardList(String pageNum) {
-		
 		Connection con = getConnection();
 		
 		BoardDAO bd = BoardDAO.getInstance();
@@ -22,13 +20,11 @@ public class BoardMainService {
 		
 		PageDAO pd = new PageDAO();
 		pd.setPageNum(pageNum);
-		pd.setCount(bd.getBoardCount());
+		pd.setCount(bd.getBoardCount(search));
 		
-		ArrayList<BoardBean> boardList = bd.getBoardList(pd);
+		ArrayList<BoardBean> searchList = bd.getSearchList(search, pd);
 		
-		return boardList;
+		return searchList;
 	}
-	
-	
 
 }

@@ -9,8 +9,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.taglibs.standard.tag.common.core.OutSupport;
-
 import vo.ActionForward;
 
 public class DownloadAction implements Action{

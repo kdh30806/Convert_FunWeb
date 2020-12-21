@@ -15,6 +15,7 @@ import action.BoardDetailAction;
 import action.BoardMainAction;
 import action.BoardReplyFormAction;
 import action.BoardReplyProAction;
+import action.BoardSearchAction;
 import action.BoardUpdateFormAction;
 import action.BoardUpdateProAction;
 import action.BoardWriteProAction;
@@ -70,6 +71,9 @@ public class BoardFrontController extends HttpServlet {
 			forward = action.execute(request, response);
 		} else if(command.equals("/replyPro.bo")) {
 			action = new BoardReplyProAction();
+			forward = action.execute(request, response);
+		} else if(command.equals("/search.bo")) {
+			action = new BoardSearchAction();
 			forward = action.execute(request, response);
 		}
 		

@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="main">
-	<h1>게시판</h1>
+	<h1><a href="main.bo">게시판</a></h1>
 		<div class="table-group">
 			<table class="table">
 				<thead class="table-light">
@@ -36,30 +36,45 @@
 					</td>
 					<td>${bb.name }</td>
 					<td>${bb.date }</td>
-					<td>0</td></tr>
+					<td>${bb.read_count }</td></tr>
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>
 		<div class="btngroup">
 			<form action="search.bo" class="search-form">
+				<input type="hidden" name="searchFlag" value="true">
 				<input type="text" name="search"><button type="submit" class="btn btn-secondary"><img src="search.png"></button>
 			</form>
 			<button class="btn btn-secondary btn-lg" onclick="location.href='BoardWriteForm.bo'">작성하기</button>
 		</div>
 		<div class="page-group">
 			<ul class="page">
-				<c:if test="${page.startPage > page.pageBlock }">
-					<li class="prev"><a href="main.bo?pageNum=${page.startPage-page.pageBlock}">&lt;&lt;</a></li>
-				</c:if>
-				<c:forEach var="i" begin="${page.startPage }" end="${page.endPage }" step="1">
-					<li><a href="main.bo?pageNum=${i}">${i}</a></li>
-				</c:forEach>
-				<c:if test="${page.endPage > page.pageBlock }">
-					<li class="next"><a href="main.bo?pageNum=${page.startPage+page.pageBlock}">&gt;&gt;</a></li>
-				</c:if>
+				<c:choose>
+					<c:when test="${searchFlag != null}">
+						<c:if test="${page.startPage > page.pageBlock }">
+						<li class="prev"><a href="search.bo?searchFlag=true&search=${search}&pageNum=${page.startPage-page.pageBlock}">&lt;&lt;</a></li>
+						</c:if>
+						<c:forEach var="i" begin="${page.startPage }" end="${page.endPage}" step="1">
+							<li><a href="search.bo?searchFlag=true&search=${search}&pageNum=${i}">${i}</a></li>
+						</c:forEach>
+						<c:if test="${page.endPage > page.pageBlock }">
+							<li class="next"><a href="search.bo?searchFlag=true&search=${search}&pageNum=${page.startPage+page.pageBlock}">&gt;&gt;</a></li>
+						</c:if>
+					</c:when>
+					<c:otherwise>
+						<c:if test="${page.startPage > page.pageBlock }">
+						<li class="prev"><a href="main.bo?pageNum=${page.startPage-page.pageBlock}">&lt;&lt;</a></li>
+						</c:if>
+						<c:forEach var="i" begin="${page.startPage }" end="${page.endPage }" step="1">
+							<li><a href="main.bo?pageNum=${i}">${i}</a></li>
+						</c:forEach>
+						<c:if test="${page.endPage > page.pageBlock }">
+							<li class="next"><a href="main.bo?pageNum=${page.startPage+page.pageBlock}">&gt;&gt;</a></li>
+						</c:if>
+					</c:otherwise>
+				</c:choose>
 			</ul>
-
 		</div>
 	</div>
 </body>
