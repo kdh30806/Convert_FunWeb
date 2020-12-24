@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+
+<transaction name="select" xmlns="http://www.cyber-i.com/xml/bld" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.cyber-i.com/xml/bld   http://www.cyber-i.com/xml/ns/bld-5.0.xsd">
+
+<info>
+  <description>
+    일반적인 sql select 예제 select에서는 transaction-type 을 정의하지 않는다.
+</description>
+</info>
+  <processor-info type="dbms" datasource="">
+    <transaction-type></transaction-type>
+
+    <sql id="sel1">
+      <query>
+        SELECT hname,enamtaxonomy_url,date FROM xbrl_style WHERE
+        code=? AND
+        version=?
+			</query>
+
+      <mapping>
+        <setProperty>code,version</setProperty>
+        <getProperty>hname,ename,taxonomy_url,date</getProperty>
+      </mapping>
+    </sql>
+
+  </processor-info>
+
+
+  <input>
+    <block>
+      <field name="code" type="string" />
+      <field name="version" type="string" />
+    </block>
+  </input>
+
+  <output>
+    <block>
+      <field name="hname" label="한굴명" type="string" />
+      <field name="ename" label="영문명" type="string" />
+      <field name="taxonomy_url" label="URL" type="string" />
+      <field name="date" label="날짜" type="string" format="yymmdd->yy/dd/mm" />
+    </block>
+  </output>
+
+</transaction>
+

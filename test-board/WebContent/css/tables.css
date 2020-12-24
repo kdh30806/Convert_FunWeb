@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.board{
+	margin: 0px;
+	text-align: center;
+	width: 100%;
+	height: auto;
+	border-left: 1px solid #ECEBFF;
+	border-right: 1px solid #ECEBFF;
+}
+
+.board tr{
+	height: 50px;
+	border-top: 1px solid #ECEBFF;
+	border-bottom: 1px solid #ECEBFF;
+}
+
+.subject{
+	width: 60%;
+}
+
+.subject2{
+	text-align: left;
+	padding-left: 35px !important;
+}
+
+.dataTables_filter label{
+	float: right;
+	width: 270px;
+}
+
+.dataTables_filter label input{
+	vertical-align: middle;
+	height: 36px;
+	width: 173px;
+	display: inline-block;
+	margin-left: 2px;
+}
+
+
+.form-control-sm{
+	display: block;
+}
+
+.pagination{
+	float: right;
+	margin-top: 8px;
+}
+
+.btns-group{
+	width: 100%;
+	height: auto;
+	margin-top: 8px;
+}
+
+#modal {
+	display: none;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	transform:translate(-45%, -50%);
+	z-index: 2;
+}
+
+#modal .modal_content {
+	width: 300px;
+	margin: 100px auto;
+	padding: 20px 10px 20px 15px;
+	background: #fff;
+	border: 2px solid #666;
+	text-align: center;
+}
+
+#file:hover{
+	cursor: pointer;	
+}

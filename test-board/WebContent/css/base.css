@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body{
+	width: 100vw;
+	height: 100vh;
+}
+
+h1{
+	text-align: center;
+	font-size: 40px;
+	padding: 20px 0 0 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+.main{
+	border: 1px solid;
+	width: 1200px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 100px;
+	padding-right: 100px;
+}
